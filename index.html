@@ -512,7 +512,16 @@
         .footer-col a:hover {
             color: var(--pure-white);
         }
+		
+		.footer-logo { height: 80px; margin-bottom: 20px; display: inline-block; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease; will-change: transform; cursor: pointer;
+		}
 
+		.footer-logo:hover { transform: scale(1.1) translateY(-4px); filter: drop-shadow(0 6px 12px rgba(203, 32, 39, 0.35)); /* Subtle red accent glow */
+		}
+
+		.footer-logo:active { transform: scale(0.98) translateY(0);
+		}
+			
         .copyright {
             text-align: center;
             border-top: 1px solid #444;
@@ -604,7 +613,7 @@
 
     <!-- Top Contact Bar -->
     <div class="top-bar">
-        <div>📍 Phnom Penh, Cambodia | 📞 +855 12 628 988 | ✉️ tum@two-parrots.com</div>
+        <div class="footer-col">📍 Phnom Penh, Cambodia | <a href="tel:+85512628988">📞 Phone: +855 12 628 988</a><a href="mailto:tum@two-parrots.com">✉️ Email: tum@two-parrots.com</a></div>
         <div>Social Agribusiness Partner</div>
     </div>
 
@@ -887,16 +896,24 @@
     <footer id="contact">
         <div class="footer-grid">
             <div class="footer-col">
-                <h4 style="color:var(--pure-white);">TWO PARROTS TRADING SOLUTIONS</h4>
+			<a href="https://www.two-parrots.com" target="_blank" rel="noopener noreferrer">
+				<img src="images/logo.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+			</a>
+			<a href="https://twoparrotsenterprise.com/" target="_blank" rel="noopener noreferrer">
+				<img src="images/logo1.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+			</a>
+			<a href="https://twoparrotsgroup.com.au/" target="_blank" rel="noopener noreferrer">
+				<img src="images/logo2.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+			</a>
                 <p style="font-size:0.85rem; color:#AAA; margin-bottom:1rem;">Professional & Trustworthy Social Agribusiness Partner.</p>
                 <p style="font-size:0.85rem; color:#AAA;">Private Limited Company Reg No: 1000547726</p>
             </div>
             <div class="footer-col">
                 <h4>Contact Info</h4>
                 <ul>
-                    <li>📞 Phone: +855 12 628 988</li>
-                    <li>✉️ Email: tum@two-parrots.com</li>
-                    <li>🌐 Web: www.two-parrots.com</li>
+                    <li><a href="tel:+85512628988">📞 Phone: +855 12 628 988</a></li>
+                    <li><a href="mailto:tum@two-parrots.com">✉️ Email: tum@two-parrots.com</a></li>
+                    <li><a href="https://www.two-parrots.com">🌐 Web: www.two-parrots.com</a></li>
                 </ul>
             </div>
             <div class="footer-col">
