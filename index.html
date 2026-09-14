@@ -115,15 +115,17 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 1.8rem;
+            gap: 2rem;
+            align-items: center;
         }
 
         nav a {
             text-decoration: none;
             color: var(--brand-black);
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 1rem;
             transition: color 0.2s ease;
+            white-space: nowrap;
         }
 
         nav a:hover {
@@ -296,6 +298,95 @@
             border-radius: 2px;
         }
 
+        /* Data Tables Styling */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            background: var(--pure-white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #EAEAEA;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .data-table th, .data-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid #EAEAEA;
+        }
+
+        .data-table th {
+            background-color: var(--deep-crimson);
+            color: var(--pure-white);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #FDFBF7;
+        }
+
+        /* Partner Logos Showcase */
+        .partner-logos-container {
+            margin-top: 2rem;
+            background: var(--pure-white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid #EAEAEA;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .partner-logos-container h4 {
+            color: var(--brand-black);
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .partner-logos-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .partner-logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+
+        .partner-logo-item img {
+            max-height: 55px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.85;
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
         /* Products Tab Navigation */
         .category-tabs {
             display: flex;
@@ -378,11 +469,47 @@
             margin-bottom: 1rem;
         }
 
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: var(--pure-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 4px solid var(--primary-red);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
         /* Production & QMS Cards */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
         }
 
         .info-card {
@@ -397,6 +524,17 @@
             color: var(--primary-red);
             font-size: 1.3rem;
             margin-bottom: 1rem;
+        }
+
+        .info-card ul {
+            list-style-type: square;
+            margin-left: 1.2rem;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .info-card ul li {
+            margin-bottom: 0.4rem;
         }
 
         /* Roadmap Timeline */
@@ -447,6 +585,13 @@
             color: var(--primary-red);
             font-weight: 700;
             font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .team-card .exp {
+            font-size: 0.8rem;
+            color: var(--heritage-green);
+            font-weight: 700;
             margin-bottom: 0.8rem;
         }
 
@@ -530,7 +675,7 @@
             color: #AAA;
         }
 
-        /* Mobile Responsive Navigation Styles */
+        /* Screen-optimized Responsive Navigation Styles */
         @media (max-width: 900px) {
             .top-bar {
                 flex-direction: column;
@@ -564,29 +709,31 @@
                 display: flex;
             }
 
-            /* Slide-down Drawer Navigation */
+            /* Responsive Drawer Navigation */
             nav {
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
                 background-color: var(--pure-white);
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
                 max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.35s ease-in-out;
+                overflow-x: hidden;
+                overflow-y: auto;
+                transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
                 z-index: 999;
+                -webkit-overflow-scrolling: touch;
             }
 
             nav.active {
-                max-height: 420px;
-                border-bottom: 3px solid var(--primary-red);
+                max-height: calc(100vh - 70px);
+                border-bottom: 4px solid var(--primary-red);
             }
 
             nav ul {
                 flex-direction: column;
                 gap: 0;
-                padding: 0.5rem 0;
+                padding: 0.4rem 0;
             }
 
             nav ul li {
@@ -595,13 +742,17 @@
 
             nav a {
                 display: block;
-                padding: 0.9rem 1.5rem;
-                font-size: 1.05rem;
+                padding: 0.85rem 1.5rem;
+                font-size: 1rem;
                 border-bottom: 1px solid #F0F0F0;
+                font-weight: 700;
             }
 
-            nav a:hover {
+            nav a:hover, nav a:active {
                 background-color: var(--light-bg);
+                color: var(--primary-red);
+                padding-left: 1.8rem;
+                transition: all 0.2s ease;
             }
 
             .hero h2 { font-size: 2rem; }
@@ -613,7 +764,7 @@
 
     <!-- Top Contact Bar -->
     <div class="top-bar">
-        <div class="footer-col">📍 Phnom Penh, Cambodia | <a href="tel:+85512628988">📞 Phone: +855 12 628 988</a><a href="mailto:tum@two-parrots.com">✉️ Email: tum@two-parrots.com</a></div>
+        <div class="footer-col">📍 Phnom Penh, Cambodia | <a href="tel:+85512628988">📞 Phone: +855 12 628 988</a> | <a href="mailto:tum@two-parrots.com">✉️ Email: tum@two-parrots.com</a></div>
         <div>Social Agribusiness Partner</div>
     </div>
 
@@ -638,15 +789,14 @@
                 <span></span>
             </button>
 
-            <!-- Navigation Drawer -->
+            <!-- Navigation Drawer (Consolidated to 5 Short Items) -->
             <nav id="navMenu">
                 <ul>
-                    <li><a href="#about" onclick="closeMobileMenu()">About Us</a></li>
+                    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
                     <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
-                    <li><a href="#qms" onclick="closeMobileMenu()">Quality & Factory</a></li>
-                    <li><a href="#milestones" onclick="closeMobileMenu()">Roadmap</a></li>
-                    <li><a href="#team" onclick="closeMobileMenu()">Leadership</a></li>
-                    <li><a href="#csr" onclick="closeMobileMenu()">CSR & ESG</a></li>
+                    <li><a href="#pricing" onclick="closeMobileMenu()">Markets</a></li>
+                    <li><a href="#qms" onclick="closeMobileMenu()">Quality</a></li>
+                    <li><a href="#team" onclick="closeMobileMenu()">Company</a></li>
                 </ul>
             </nav>
 
@@ -690,31 +840,122 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section & Partnerships -->
     <section class="section" id="about">
         <div class="section-header">
-            <h3>Company Background</h3>
+            <h3>Company Background & Market Opportunity</h3>
         </div>
+        
+        <!-- Key Market Traction Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">17,000–20,000 MT</div>
+                <div class="label">Annual Pepper Production in Cambodia</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">500 MT</div>
+                <div class="label">Annual Domestic Pepper Consumption</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">350 MT</div>
+                <div class="label">Two Parrots Annual Domestic Pepper Sales</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">70%</div>
+                <div class="label">Share of Cambodia's Branded Pepper Market</div>
+            </div>
+        </div>
+
         <div class="grid-2">
             <div class="info-card">
-                <h4>Our Background & Vision</h4>
-                <p><strong>Two Parrots Trading Solutions Co., Ltd.</strong> is a social agribusiness dedicated to building traceable value chains. Backed by 20 years of agri-food experience, we support Cambodian smallholders while delivering export-ready products globally.</p>
+                <h4>Our History & Vision</h4>
+                <p>Established in <strong>2009</strong> and headquartered in Phnom Penh, Two Parrots sources, processes, packages, and distributes Cambodian agricultural products domestically. In <strong>2025</strong>, <strong>Two Parrots Trading Solutions Co., Ltd.</strong> was established to distribute and trade across international markets.</p>
                 <br>
                 <p><strong>Vision:</strong> To be a leading, trusted, and ethical agribusiness partner driving sustainable growth for farmers, partners, and consumers.</p>
             </div>
             <div class="info-card" style="border-left-color: var(--heritage-green);">
-                <h4>Our Mission & Strategy</h4>
-                <p><strong>Mission:</strong> To build sustainable agricultural value chains delivering high-quality and traceable products while promoting environmental and social responsibility.</p>
+                <h4>Our Mission & Integrated Model</h4>
+                <p><strong>Mission:</strong> To build high-quality agricultural value chains delivering traceable products while promoting environmental and social responsibility.</p>
                 <br>
-                <p><strong>Business Model:</strong> Direct partnerships with agricultural cooperatives and SMEs, green investments, eco-friendly packaging, and zero-waste initiative models.</p>
+                <p><strong>Integrated Supply Chain (Farm to Market):</strong> SOURCING (Farmers & Cooperatives) &rarr; PROCESSING (Phnom Penh Facility) &rarr; QUALITY & TRACEABILITY (ICS Monitored) &rarr; FLEXIBLE PACKAGING &rarr; DISTRIBUTION (Domestic & Export Markets).</p>
+            </div>
+        </div>
+
+        <!-- Partnerships Sub-Grid -->
+        <div style="margin-top: 2.5rem;" id="partnerships">
+            <div class="grid-2">
+                <div class="info-card">
+                    <h4>Distribution & Commercial Channels</h4>
+                    <ul>
+                        <li><strong>Domestic Networks:</strong> 35+ Distributors, 250+ Retail Outlets, 45+ Supermarkets across Cambodia.</li>
+                        <li><strong>International Markets:</strong> Global distribution partners across Japan, New Zealand, USA, France, and Australia.</li>
+                        <li><strong>Target Enterprise Formats:</strong> Bulk ingredients, White Label/Private Label, and Branded Retail.</li>
+                    </ul>
+                </div>
+                <div class="info-card" style="border-left-color: var(--heritage-green);">
+                    <h4>Development Partners & Collaborators</h4>
+                    <ul>
+                        <li><strong>Australian CAPRED / Aid:</strong> Supporting Tboung Khmum province pepper farmers to secure GLOBALG.A.P. certifications.</li>
+                        <li><strong>EU / GIZ:</strong> Upgrading Cambodian pepper and cashew value chains to transition smallholders into processed value-added goods.</li>
+                        <li><strong>ADB Frontier Program:</strong> Enhancing market development and regional supply chain integration.</li>
+                        <li><strong>Quality Testing:</strong> Product development testing partnerships with international labs (EUROFINS).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- International Development Partner Logos Showcase -->
+            <div class="partner-logos-container">
+                <h4>Actively Collaborating With International Development Partners</h4>
+                <div class="partner-logos-grid">
+                    <div class="partner-logo-item">
+                        <img src="images/about3.jpg" alt="Australian Aid & CAPRED Logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="images/about1.jpg" alt="German Cooperation, European Union & GIZ Logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="images/about2.jpg" alt="ADB Frontier Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic USPs Grid -->
+        <div style="margin-top: 2.5rem;">
+            <h4 style="text-align: center; color: var(--brand-black); margin-bottom: 1.5rem; font-size: 1.4rem;">Why Two Parrots (Key USPs)</h4>
+            <div class="grid-3">
+                <div class="info-card" style="border-left-color: var(--spice-orange);">
+                    <h4>1. Single-Origin Provenance</h4>
+                    <p>Traceable Cambodian pepper standing apart from blended Vietnamese and Indian supply for distinct sourcing diversification.</p>
+                </div>
+                <div class="info-card" style="border-left-color: var(--spice-orange);">
+                    <h4>2. Direct Sourcing Network</h4>
+                    <p>Sourced directly from smallholder farmers, Pepper Agricultural Cooperatives, and Agricultural Unions with full audit visibility.</p>
+                </div>
+                <div class="info-card" style="border-left-color: var(--spice-orange);">
+                    <h4>3. Certified Quality Standards</h4>
+                    <p>Global GAP, GMP, and HACCP certified operations featuring steam-sterilized products meeting strict international standards.</p>
+                </div>
+                <div class="info-card" style="border-left-color: var(--spice-orange);">
+                    <h4>4. Scalable Processing</h4>
+                    <p>Dedicated Phnom Penh facility with annual capacity of 3,600 MT black pepper and 1,800 MT white pepper.</p>
+                </div>
+                <div class="info-card" style="border-left-color: var(--spice-orange);">
+                    <h4>5. Flexible Export Formats</h4>
+                    <p>Comprehensive solutions across 25kg bulk ingredients, private/white-label options, and Two Parrots branded retail packs.</p>
+                </div>
+                <div class="info-card" style="border-left-color: var(--spice-orange);">
+                    <h4>6. Premium Social Impact</h4>
+                    <p>Social agribusiness model paying premium prices for Global GAP-certified pepper, empowering local farming communities.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section class="section" id="products" style="background-color: #F8F6F0;">
+    <section class="section" id="products">
         <div class="section-header">
-            <h3>Our Product Offerings</h3>
+            <h3>Product Catalog & Technical Specifications</h3>
         </div>
 
         <div class="category-tabs">
@@ -726,31 +967,45 @@
         <!-- Pepper Category -->
         <div id="pepper" class="product-group active">
             <div class="product-card" style="position:relative;">
-                <span class="product-badge">Export Quality</span>
+                <span class="product-badge">Export Standard</span>
                 <div class="product-info">
-                    <h4>Black Pepper</h4>
-                    <p>Bold, aromatic spice with consistent quality, sustainably sourced for domestic and global buyers.</p>
+                    <h4>Black Pepper (Whole)</h4>
+                    <p>Bold, aromatic single-origin peppercorns. Density &ge; 550 g/l, Size &ge; 4mm, Moisture &le; 12%.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-info">
-                    <h4>Coarse / Fine Ground Black Pepper</h4>
-                    <p>Milled black pepper preserving natural essential oils and rich flavor profile.</p>
+                    <h4>White Pepper (Whole)</h4>
+                    <p>Rich flavor, fully ripened seeds. Density &ge; 630 g/l, Size &ge; 4mm, Moisture &le; 12%.</p>
+                    <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-info">
+                    <h4>Fine Ground Black Pepper</h4>
+                    <p>Pure ground black pepper milled to 40 mesh standard. Moisture &le; 12%.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-info">
                     <h4>Fine Ground White Pepper</h4>
-                    <p>Mild, smooth spice crafted from fully ripened pepper seeds for gourmet culinary uses.</p>
+                    <p>Smooth, gourmet milled white pepper processed to 60 mesh standard. Moisture &le; 12%.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-info">
-                    <h4>Diced Pearl Pepper & Pepper Powder</h4>
-                    <p>Finely chopped and blended pepper mixes tailored for food manufacturing and seasoning.</p>
+                    <h4>Crushed Black Pepper</h4>
+                    <p>Coarse crushed black pepper milled to 10-20 mesh standard. Moisture &le; 12%.</p>
+                    <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-info">
+                    <h4>Diced Pearl Pepper & Blends</h4>
+                    <p>Diced pearl pepper, pure pepper powder, and classic Pepper & Salt seasoning mix packets.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -761,21 +1016,35 @@
             <div class="product-card">
                 <div class="product-info">
                     <h4>Finest Rice Flour</h4>
-                    <p>Premium gluten-free flour milled from pure rice, ideal for noodles, pastries, and batters.</p>
+                    <p>Premium gluten-free fine rice flour for versatile everyday cooking, noodles, and baking.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-info">
-                    <h4>Glutinous Rice & Tapioca Flour</h4>
-                    <p>Smooth, high-purity starches for traditional rice dishes, desserts, and thickening agents.</p>
+                    <h4>Glutinous Rice Flour</h4>
+                    <p>Smooth, elastic texture ideal for traditional desserts, modern recipes, and pastry binding.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-info">
-                    <h4>Crispy Tempura & Pancake Flour</h4>
-                    <p>Ready-mix formulated flours for food service providers, restaurants, and retail distribution.</p>
+                    <h4>Tapioca Flour</h4>
+                    <p>Versatile high-purity starch offering exceptionally smooth texture and binding properties.</p>
+                    <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-info">
+                    <h4>Crispy Tempura Flour</h4>
+                    <p>Specially formulated coating blend for crispy, flavorful, convenient pan and deep frying.</p>
+                    <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-info">
+                    <h4>Pancake & Fried Banana Flour</h4>
+                    <p>Easy-to-use retail mixes for light pancakes and crispy Cambodian-style fried banana treats.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -786,16 +1055,146 @@
             <div class="product-card">
                 <div class="product-info">
                     <h4>Instant Rice Noodles</h4>
-                    <p>Quick-prep, light, and digestible rice noodles manufactured in our modern processing lines.</p>
+                    <p>Quick-prep, light, and digestible rice noodles manufactured in modern automated lines.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-info">
-                    <h4>Khmer Noodles & Pepper-Salt Mix</h4>
-                    <p>Authentic Cambodian style noodles alongside classic balanced table seasoning blends.</p>
+                    <h4>Khmer Traditional Noodles</h4>
+                    <p>Authentic Cambodian style rice noodles optimized for traditional soups and stir-fry dishes.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
+            </div>
+        </div>
+
+        <!-- Pepper Product Tier Specifications Table -->
+        <div style="margin-top: 3rem;">
+            <h4 style="text-align: center; color: var(--brand-black); margin-bottom: 1rem; font-size: 1.4rem;">Pepper Quality Tiers & Sourcing Specifications</h4>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Quality Tier</th>
+                            <th>Certifications & Compliance</th>
+                            <th>Key Product Features</th>
+                            <th>Target Export Markets</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Safe Pepper (Whole & Ground)</strong></td>
+                            <td>Global GAP, GMP, HACCP Certified</td>
+                            <td>Clean, fully matured peppercorns, steam-sterilized, foreign matter &le; 0%.</td>
+                            <td>EU, USA, Japan, Australia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Organic Pepper (Whole & Ground)</strong></td>
+                            <td>EU Organic & USDA Organic Certified</td>
+                            <td>Single-origin specialty region, 100% organic, full farm-to-pack audit traceability.</td>
+                            <td>EU, North America, High-end Specialty</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Non-Organic Pepper (Whole & Ground)</strong></td>
+                            <td>GMP, HACCP Food Safety Compliant</td>
+                            <td>Clean, fully matured, minimal chemical use, stable scalable volume, steam-sterilized.</td>
+                            <td>Mass Retail, Food Service, Re-packers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.8rem; text-align: center;">* All SKUs available formats: 25kg Bulk Bags, 1kg, 650g, 500g, and Custom Private Label Retail Packaging.</p>
+        </div>
+    </section>
+
+    <!-- Global Export & Pricing Comparison -->
+    <section class="section" id="pricing" style="background-color: #F8F6F0;">
+        <div class="section-header">
+            <h3>Global Export Footprint & Pricing Benchmarks</h3>
+        </div>
+
+        <div class="grid-2">
+            <div class="info-card">
+                <h4>Established Export Partners (2025–2026)</h4>
+                <ul>
+                    <li><strong>Japan:</strong> Tomomi Mahob Khmer Co., Ltd</li>
+                    <li><strong>New Zealand:</strong> Thai Heng Limited</li>
+                    <li><strong>USA:</strong> BNE Investments</li>
+                    <li><strong>France:</strong> P&eacute;pites d'Or Khmer</li>
+                    <li><strong>Australia & Korea:</strong> Strategic market expansion partners</li>
+                </ul>
+            </div>
+            <div class="info-card" style="border-left-color: var(--spice-orange);">
+                <h4>Market Positioning Strategy</h4>
+                <p>Positioned in the <strong>Value Premium</strong> segment. Cambodia offers an authentic single-origin pepper surplus (17,000–20,000 MT production vs 500 MT domestic demand) featuring high essential oil content, GI-linked sourcing options, and strict steam-sterilization.</p>
+            </div>
+        </div>
+
+        <!-- Price Comparison Table -->
+        <div style="margin-top: 2.5rem;">
+            <h4 style="text-align: center; color: var(--brand-black); margin-bottom: 1rem; font-size: 1.4rem;">International Bulk Pepper Indicative Price Comparison (USD/MT)</h4>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Origin / Product Variety</th>
+                            <th>Mesh / Density Standard</th>
+                            <th>Indicative Price (USD / MT)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cambodia (Two Parrots Black Pepper Whole)</strong></td>
+                            <td>550 g/l</td>
+                            <td><strong>$8,622</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cambodia (Two Parrots White Pepper Whole)</strong></td>
+                            <td>630 g/l</td>
+                            <td><strong>$10,800</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cambodia (Two Parrots Ground Black Pepper)</strong></td>
+                            <td>40 mesh</td>
+                            <td><strong>$9,531</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cambodia (Two Parrots Ground White Pepper)</strong></td>
+                            <td>60 mesh</td>
+                            <td><strong>$11,250</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cambodia (Two Parrots Crushed Black Pepper)</strong></td>
+                            <td>10–20 mesh</td>
+                            <td><strong>$9,531</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Vietnam Black Pepper</td>
+                            <td>500 g/l – 550 g/l</td>
+                            <td>$6,100 – $6,200</td>
+                        </tr>
+                        <tr>
+                            <td>Vietnam White Pepper</td>
+                            <td>ASTA</td>
+                            <td>$9,000</td>
+                        </tr>
+                        <tr>
+                            <td>Indonesia Black / White Pepper</td>
+                            <td>Standard Export</td>
+                            <td>$6,947 / $9,153</td>
+                        </tr>
+                        <tr>
+                            <td>Brazil Black Pepper</td>
+                            <td>ASTA 570</td>
+                            <td>$6,100</td>
+                        </tr>
+                        <tr>
+                            <td>Malaysia Black / White Pepper</td>
+                            <td>ASTA</td>
+                            <td>$9,300 / $12,200</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -803,91 +1202,140 @@
     <!-- Processing & Quality Assurance -->
     <section class="section" id="qms">
         <div class="section-header">
-            <h3>Production Line & Quality Control</h3>
+            <h3>Processing Facility & Quality Control System</h3>
         </div>
         <div class="grid-2">
             <div class="info-card">
-                <h4>Processing Facility & Equipment</h4>
-                <p>Our processing setup uses multi-stage automated lines including Mixers, Steamer systems, Flash Fryers, Coolers, and Weight Checkers integrated with Metal Detectors to ensure absolute product safety.</p>
+                <h4>Facility Layout & Processing Capacity</h4>
+                <p>Located in Phnom Penh, our production plant features automated processing rooms including Raw Material Warehouses, Steam Sterilization Units, Grinding Rooms, Air Blowing Systems, and Dedicated Packaging Areas.</p>
+                <br>
+                <ul>
+                    <li><strong>Black Pepper Capacity:</strong> 3,600 MT / year (Whole & Fine Ground)</li>
+                    <li><strong>White Pepper Capacity:</strong> 1,800 MT / year (Whole & Fine Ground)</li>
+                    <li><strong>Drying & Safety:</strong> Traditional sun-drying combined with industrial steam sterilization.</li>
+                </ul>
             </div>
             <div class="info-card" style="border-left-color: var(--spice-orange);">
-                <h4>Quality Management System (QMS)</h4>
-                <p>We execute Internal Control System (ICS) monitoring across all raw materials. Our operations follow GMP and HACCP protocols while advancing towards complete FSSC22000 and BRC certifications for international markets.</p>
+                <h4>Quality Management System (QMS) & ICS</h4>
+                <p>Supported by internal QA/QC teams and external auditors. We enforce an <strong>Internal Control System (ICS)</strong> monitoring farm raw materials and factory workflows.</p>
+                <br>
+                <ul>
+                    <li><strong>Standards Compliance:</strong> GMP, HACCP, Global GAP, SRP, Organic standards.</li>
+                    <li><strong>Laboratory Testing:</strong> Rigorous microbiological, chemical, and physical safety testing.</li>
+                    <li><strong>Foreign Matter Target:</strong> &le; 0% foreign matter in finished export lots.</li>
+                </ul>
             </div>
         </div>
 
         <div class="cert-badges">
             <div class="cert-badge">HACCP Certified</div>
             <div class="cert-badge">GMP Standard</div>
+            <div class="cert-badge">GLOBALG.A.P. Certified</div>
+            <div class="cert-badge">USDA Organic</div>
+            <div class="cert-badge">EU Organic</div>
+            <div class="cert-badge">FDA Registered</div>
             <div class="cert-badge">HALAL Compliant</div>
-            <div class="cert-badge">GAP / Organic ICS</div>
-            <div class="cert-badge">FSSC 22000 Standard</div>
         </div>
     </section>
 
-    <!-- Company Milestones Roadmap -->
-    <section class="section" id="milestones" style="background-color: #F8F6F0;">
-        <div class="section-header">
+    <!-- Leadership Team, Roadmap & ESG (Company Section) -->
+    <section class="section" id="team">
+        <!-- Roadmap Sub-section -->
+        <div class="section-header" id="milestones">
             <h3>Strategic Growth Roadmap</h3>
         </div>
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-year">2025</div>
-                <p>Expansion of processing factories for pepper, flours, noodles, and seasoning mixes. Partnering with 6 agricultural cooperatives and 500 smallholders in Cambodia.</p>
+                <div class="timeline-year">2020 – 2022</div>
+                <p>Solidified domestic foundation in Cambodia, selling 250 MT of black peppercorns across nationwide retail networks, supermarkets, and distributors.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2023 – 2025</div>
+                <p>Expanded domestic pepper sales to 350 MT annually (~70% market share). Launched international trading arm (Two Parrots Trading Solutions Co., Ltd.) and initiated exports to Japan, NZ, USA, France, and Australia while integrating 6 cooperatives and 500 smallholder farmers.</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2026</div>
-                <p>Brand scaling and instant noodle factory expansion. Targeting export channels to Japan, Korea, Australia, UK, EU, and the US while integrating 1,000 farmers across 10 cooperatives.</p>
+                <p>Targeting 500 MT total black/white pepper volume across domestic and export markets. Scaling brand presence and instant noodle production lines while integrating 1,000 farmers across 10 agricultural cooperatives.</p>
             </div>
             <div class="timeline-item">
-                <div class="timeline-year">2027 - 2029</div>
-                <p>Full implementation of digital farm-to-table traceability systems, target partnership of 20 cooperatives, zero-waste operational models, and increasing smallholder farm income by 30%.</p>
+                <div class="timeline-year">2027 – 2029</div>
+                <p>Deploying full digital farm-to-table traceability systems, expanding network to 20 farmer cooperatives, adopting zero-waste production models, and driving a 30% net income increase for smallholder farming partners.</p>
             </div>
         </div>
-    </section>
 
-    <!-- Leadership Team -->
-    <section class="section" id="team">
-        <div class="section-header">
-            <h3>Leadership & Management</h3>
+        <!-- Leadership Team Sub-section -->
+        <div class="section-header" style="margin-top: 4rem;">
+            <h3>Executive Leadership & Management Team</h3>
         </div>
         <div class="team-grid">
             <div class="team-card">
                 <h4>Mr. Try Senhoeun</h4>
                 <div class="role">Founder & Chairman</div>
-                <p>Extensive experience in agribusiness, supply chain strategy, and brand growth.</p>
+                <div class="exp">20 Years Experience</div>
+                <p>Extensive background in agribusiness, supply chain development, brand building, and establishing global market linkages for Cambodian products.</p>
             </div>
             <div class="team-card">
                 <h4>Mrs. To Sony</h4>
                 <div class="role">Founder & CEO</div>
-                <p>Specializes in food value chains, export growth, and local farmer empowerment.</p>
+                <div class="exp">18 Years Experience</div>
+                <p>Specializes in food value chains, export strategies, sustainable processing operations, and empowering smallholder farming communities.</p>
             </div>
             <div class="team-card">
                 <h4>Mr. Noun Tum</h4>
                 <div class="role">Managing Director</div>
-                <p>Leads market development, fundraising, and international client relationships.</p>
+                <div class="exp">16 Years Experience</div>
+                <p>Leads fundraising, strategic planning, market expansion, brand positioning, and key international buyer relations.</p>
             </div>
             <div class="team-card">
                 <h4>Ms. Heng Socheata</h4>
                 <div class="role">Operations Manager</div>
-                <p>Oversees processing workflows, plant efficiency, and quality compliance.</p>
+                <div class="exp">10 Years Experience</div>
+                <p>Manages plant operations, streamlines processing workflows, oversees raw material supply chains, and ensures quality compliance.</p>
+            </div>
+            <div class="team-card">
+                <h4>Mr. Thlok Chea</h4>
+                <div class="role">QA Manager</div>
+                <div class="exp">12 Years Experience</div>
+                <p>Oversees implementation and maintenance of QA systems to guarantee product safety, compliance, and international standard adherence.</p>
+            </div>
+            <div class="team-card">
+                <h4>Ms. Bol Sokcheng</h4>
+                <div class="role">Food Safety Specialist</div>
+                <div class="exp">8 Years Experience</div>
+                <p>Ensures supply chain hygienic compliance from raw material reception to finished export packaging according to local and global regulations.</p>
+            </div>
+            <div class="team-card">
+                <h4>Mr. Chip Samath</h4>
+                <div class="role">Sales Specialist</div>
+                <div class="exp">10 Years Experience</div>
+                <p>Drives corporate commercial growth, manages distributor networks, and maintains long-term B2B client partnerships.</p>
+            </div>
+            <div class="team-card">
+                <h4>Mrs. Sot Navy</h4>
+                <div class="role">Finance Manager</div>
+                <div class="exp">15 Years Experience</div>
+                <p>Directs corporate financial health, budget management, regulatory compliance, and fiscal reporting systems.</p>
             </div>
         </div>
-    </section>
 
-    <!-- CSR & ESG -->
-    <section class="section" id="csr">
-        <div class="section-header">
+        <!-- CSR & ESG Sub-section -->
+        <div class="section-header" id="csr" style="margin-top: 4rem;">
             <h3>CSR & ESG Commitments</h3>
         </div>
         <div class="grid-2">
             <div class="info-card" style="border-left-color: var(--heritage-green);">
-                <h4>Social Responsibility & Community</h4>
-                <p>We actively engage in charitable initiatives, worker well-being programs, fair wage structures, and capacity-building workshops for rural agricultural communities.</p>
+                <h4>Environmental & Social Responsibility</h4>
+                <ul>
+                    <li><strong>Climate-Smart Agriculture:</strong> Promoting GAP standards, organic practices, and efficient resource management on farms.</li>
+                    <li><strong>Social Inclusion & Community Development:</strong> Fair payment models, worker safety, fair wages, gender inclusion, and community charitable programs.</li>
+                </ul>
             </div>
             <div class="info-card" style="border-left-color: var(--primary-red);">
-                <h4>Environmental Governance</h4>
-                <p>Integrating climate-smart farming, eco-friendly packaging materials, ethical trade policies, and accountable supply management aligned with global ESG standards.</p>
+                <h4>Governance & Business Integrity</h4>
+                <ul>
+                    <li><strong>Ethical Trading & Accountability:</strong> Strict corporate transparency, complete traceability, and anti-corruption policies.</li>
+                    <li><strong>Legal & Statutory Registrations:</strong> MOC Reg (MOC-00053270 / 1000547726), Patent Tax Registration, NSSF Compliant.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -897,23 +1345,24 @@
         <div class="footer-grid">
             <div class="footer-col">
 			<a href="https://twoparrotsenterprise.com/" target="_blank" rel="noopener noreferrer">
-				<img src="images/logo1.png" alt="Two Parrots Enterprise Logo" class="footer-logo">
+				<img src="images/logo1.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
 			</a>
 			<a href="https://www.two-parrots.com" target="_blank" rel="noopener noreferrer">
 				<img src="images/logo.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
 			</a>
 			<a href="https://twoparrotsgroup.com.au/" target="_blank" rel="noopener noreferrer">
-				<img src="images/logo2.png" alt="Two Parrots Group Australia Logo" class="footer-logo">
+				<img src="images/logo2.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
 			</a>
                 <p style="font-size:0.85rem; color:#AAA; margin-bottom:1rem;">Professional & Trustworthy Social Agribusiness Partner.</p>
-                <p style="font-size:0.85rem; color:#AAA;">Private Limited Company Reg No: 1000547726</p>
+                <p style="font-size:0.85rem; color:#AAA;">Private Limited Company Reg No: 1000547726 (MOC-00053270)</p>
             </div>
             <div class="footer-col">
                 <h4>Contact Info</h4>
                 <ul>
-                    <li><a href="tel:+85512628988">📞 Phone: +855 12 628 988</a></li>
+                    <li><a href="tel:+85512628988">📞 Phone / WhatsApp: +855 12 628 988</a></li>
                     <li><a href="mailto:tum@two-parrots.com">✉️ Email: tum@two-parrots.com</a></li>
                     <li><a href="https://www.two-parrots.com">🌐 Web: www.two-parrots.com</a></li>
+                    <li><strong>Key Contact:</strong> Mr. Noun Tum (Managing Director)</li>
                 </ul>
             </div>
             <div class="footer-col">
