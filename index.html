@@ -8,31 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700;800&display=swap" rel="stylesheet">
-	<link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
     
     <style>
-	:root {
-    /* Primary Colors (Page 10-11) */
-    --primary-red: #CB2027;      /* Primary Red (C13 M100 Y100 K4) */
-    --pure-white: #FFFFFF;       /* Pure White (C0 M0 Y0 K0) */
-    --brand-black: #231F20;      /* Primary Black (C0 M0 Y0 K100) */
+        :root {
+            /* Primary Colors */
+            --primary-red: #CB2027;      
+            --pure-white: #FFFFFF;       
+            --brand-black: #231F20;      
 
-    /* Secondary Colors (Page 11) */
-    --deep-crimson: #9E1C20;     /* Deep Crimson Red (C24 M100 Y100 K22) */
-    --spice-orange: #F9A01B;     /* Spice Orange (C0 M43 Y100 K0) */
-    --heritage-green: #2C9947;   /* Heritage Green (C81 M15 Y100 K2) */
-    --golden-yellow: #E7E614;    /* Golden Yellow (C13 M0 Y100 K0) */
+            /* Secondary Colors */
+            --deep-crimson: #9E1C20;     
+            --spice-orange: #F9A01B;     
+            --heritage-green: #2C9947;   
+            --golden-yellow: #E7E614;    
 
-    /* Logo Gradient Matches Brand Spice Colors */
-    --orange-start: #F9A01B;     /* Aligned to Official Spice Orange */
-    --orange-end: #CB2027;       /* Aligned to Official Primary Red */
+            /* Logo Gradient */
+            --orange-start: #F9A01B;     
+            --orange-end: #CB2027;       
 
-    /* Tertiary Colors (Page 12) */
-    --warm-yellow: #FFD23B;      /* Warm Yellow (C0 M16 Y87 K0) */
-    --rice-cream: #F3E5C3;       /* Rice Cream (C4 M8 Y25 K1) */
-    --charcoal: #333333;         /* Charcoal (C69 M63 Y62 K58) */
-    --light-bg: #FDFBF7;
-}
+            /* Tertiary Colors */
+            --warm-yellow: #FFD23B;      
+            --rice-cream: #F3E5C3;       
+            --charcoal: #333333;         
+            --light-bg: #FDFBF7;
+        }
 
         * {
             box-sizing: border-box;
@@ -115,7 +115,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.8rem;
             align-items: center;
         }
 
@@ -123,7 +123,7 @@
             text-decoration: none;
             color: var(--brand-black);
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: color 0.2s ease;
             white-space: nowrap;
         }
@@ -149,7 +149,7 @@
             background-color: var(--deep-crimson);
         }
 
-        /* Hamburger Button (Hidden on Desktop) */
+        /* Hamburger Button */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -171,7 +171,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Hamburger Animation Active State */
         .mobile-menu-btn.active span:nth-child(1) {
             transform: translateY(8px) rotate(45deg);
             background-color: var(--primary-red);
@@ -184,7 +183,6 @@
             background-color: var(--primary-red);
         }
 
-        /* Mobile Menu Overlay Backdrop */
         .menu-backdrop {
             display: none;
             position: fixed;
@@ -487,7 +485,7 @@
         }
 
         .stat-card .number {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary-red);
             margin-bottom: 0.3rem;
@@ -657,16 +655,25 @@
         .footer-col a:hover {
             color: var(--pure-white);
         }
-		
-		.footer-logo { height: 80px; margin-bottom: 20px; display: inline-block; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease; will-change: transform; cursor: pointer;
-		}
+        
+        .footer-logo { 
+            height: 80px; 
+            margin-bottom: 20px; 
+            display: inline-block; 
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease; 
+            will-change: transform; 
+            cursor: pointer;
+        }
 
-		.footer-logo:hover { transform: scale(1.1) translateY(-4px); filter: drop-shadow(0 6px 12px rgba(203, 32, 39, 0.35)); /* Subtle red accent glow */
-		}
+        .footer-logo:hover { 
+            transform: scale(1.1) translateY(-4px); 
+            filter: drop-shadow(0 6px 12px rgba(203, 32, 39, 0.35));
+        }
 
-		.footer-logo:active { transform: scale(0.98) translateY(0);
-		}
-			
+        .footer-logo:active { 
+            transform: scale(0.98) translateY(0);
+        }
+            
         .copyright {
             text-align: center;
             border-top: 1px solid #444;
@@ -675,7 +682,7 @@
             color: #AAA;
         }
 
-        /* Screen-optimized Responsive Navigation Styles */
+        /* Responsive Navigation Styles */
         @media (max-width: 900px) {
             .top-bar {
                 flex-direction: column;
@@ -709,7 +716,6 @@
                 display: flex;
             }
 
-            /* Responsive Drawer Navigation */
             nav {
                 position: absolute;
                 top: 100%;
@@ -765,7 +771,7 @@
     <!-- Top Contact Bar -->
     <div class="top-bar">
         <div class="footer-col">📍 Phnom Penh, Cambodia | <a href="tel:+85512628988">📞 Phone: +855 12 628 988</a> | <a href="mailto:tum@two-parrots.com">✉️ Email: tum@two-parrots.com</a></div>
-        <div>Social Agribusiness Partner</div>
+        <div>Social Agribusiness Partner | CAPRED Supported</div>
     </div>
 
     <!-- Backdrop Overlay for Mobile Navigation -->
@@ -789,13 +795,14 @@
                 <span></span>
             </button>
 
-            <!-- Navigation Drawer (Consolidated to 5 Short Items) -->
+            <!-- Navigation Drawer -->
             <nav id="navMenu">
                 <ul>
                     <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
                     <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
                     <li><a href="#pricing" onclick="closeMobileMenu()">Markets</a></li>
-                    <li><a href="#qms" onclick="closeMobileMenu()">Quality</a></li>
+                    <li><a href="#compliance" onclick="closeMobileMenu()">Biosecurity & Compliance</a></li>
+                    <li><a href="#sales2026" onclick="closeMobileMenu()">2026 Sales Data</a></li>
                     <li><a href="#team" onclick="closeMobileMenu()">Company</a></li>
                 </ul>
             </nav>
@@ -881,6 +888,28 @@
             </div>
         </div>
 
+        <!-- Australian Market Demographics & Insights -->
+        <div style="margin-top: 2.5rem;">
+            <div class="grid-2">
+                <div class="info-card" style="border-left-color: var(--spice-orange);">
+                    <h4>Australian Market Demographics & Community Profile</h4>
+                    <ul>
+                        <li><strong>Macro Economic Profile:</strong> Australia has a population of 27.8M with USD $65,130 GDP per capita. High urbanisation (88%) drives strong grocery & foodservice demand.</li>
+                        <li><strong>Cambodian-Australian Community:</strong> Concentrated base of ~57,000 individuals with Cambodian ancestry. Major clusters located in Victoria (Springvale & Dandenong, 7.0% of LGA) and NSW (Cabramatta & Bonnyrigg).</li>
+                        <li><strong>Category Size:</strong> Australia's herbs & spices market is worth USD $170.8M (2024), projected to reach USD $190.3M by 2029. Pepper accounts for 19.1% (USD $32.6M).</li>
+                    </ul>
+                </div>
+                <div class="info-card" style="border-left-color: var(--primary-red);">
+                    <h4>Trade Infrastructure & Origin Gap Analysis</h4>
+                    <ul>
+                        <li><strong>Import Volume:</strong> Australia imported USD $59.1M (10,058 MT) of pepper/capsicum products in 2025 under HS 0904.</li>
+                        <li><strong>Hidden Origin Opportunity:</strong> Vietnam, India, China, and Spain control ~82% of imports. Direct Cambodian shipments record only 3 MT, yet 40-45% of Vietnam's imports are estimated to originate from Cambodia.</li>
+                        <li><strong>Value Capture:</strong> Direct trade, single-origin labeling, and BICON compliance allow Two Parrots to capture true provenance value.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- Partnerships Sub-Grid -->
         <div style="margin-top: 2.5rem;" id="partnerships">
             <div class="grid-2">
@@ -889,7 +918,7 @@
                     <ul>
                         <li><strong>Domestic Networks:</strong> 35+ Distributors, 250+ Retail Outlets, 45+ Supermarkets across Cambodia.</li>
                         <li><strong>International Markets:</strong> Global distribution partners across Japan, New Zealand, USA, France, and Australia.</li>
-                        <li><strong>Target Enterprise Formats:</strong> Bulk ingredients, White Label/Private Label, and Branded Retail.</li>
+                        <li><strong>Target Enterprise Formats:</strong> Bulk ingredients (25kg), White Label/Private Label, and Branded Retail (500g, 1000g).</li>
                     </ul>
                 </div>
                 <div class="info-card" style="border-left-color: var(--heritage-green);">
@@ -908,45 +937,14 @@
                 <h4>Actively Collaborating With International Development Partners</h4>
                 <div class="partner-logos-grid">
                     <div class="partner-logo-item">
-                        <img src="images/about3.jpg" alt="Australian Aid & CAPRED Logo">
+                        <img src="images/australian-aid-capred.png" alt="Australian Aid & CAPRED Logo">
                     </div>
                     <div class="partner-logo-item">
-                        <img src="images/about1.jpg" alt="German Cooperation, European Union & GIZ Logo">
+                        <img src="images/eu-giz.png" alt="German Cooperation, European Union & GIZ Logo">
                     </div>
                     <div class="partner-logo-item">
-                        <img src="images/about2.jpg" alt="ADB Frontier Logo">
+                        <img src="images/adb-frontier.png" alt="ADB Frontier Logo">
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Strategic USPs Grid -->
-        <div style="margin-top: 2.5rem;">
-            <h4 style="text-align: center; color: var(--brand-black); margin-bottom: 1.5rem; font-size: 1.4rem;">Why Two Parrots (Key USPs)</h4>
-            <div class="grid-3">
-                <div class="info-card" style="border-left-color: var(--spice-orange);">
-                    <h4>1. Single-Origin Provenance</h4>
-                    <p>Traceable Cambodian pepper standing apart from blended Vietnamese and Indian supply for distinct sourcing diversification.</p>
-                </div>
-                <div class="info-card" style="border-left-color: var(--spice-orange);">
-                    <h4>2. Direct Sourcing Network</h4>
-                    <p>Sourced directly from smallholder farmers, Pepper Agricultural Cooperatives, and Agricultural Unions with full audit visibility.</p>
-                </div>
-                <div class="info-card" style="border-left-color: var(--spice-orange);">
-                    <h4>3. Certified Quality Standards</h4>
-                    <p>Global GAP, GMP, and HACCP certified operations featuring steam-sterilized products meeting strict international standards.</p>
-                </div>
-                <div class="info-card" style="border-left-color: var(--spice-orange);">
-                    <h4>4. Scalable Processing</h4>
-                    <p>Dedicated Phnom Penh facility with annual capacity of 3,600 MT black pepper and 1,800 MT white pepper.</p>
-                </div>
-                <div class="info-card" style="border-left-color: var(--spice-orange);">
-                    <h4>5. Flexible Export Formats</h4>
-                    <p>Comprehensive solutions across 25kg bulk ingredients, private/white-label options, and Two Parrots branded retail packs.</p>
-                </div>
-                <div class="info-card" style="border-left-color: var(--spice-orange);">
-                    <h4>6. Premium Social Impact</h4>
-                    <p>Social agribusiness model paying premium prices for Global GAP-certified pepper, empowering local farming communities.</p>
                 </div>
             </div>
         </div>
@@ -967,45 +965,49 @@
         <!-- Pepper Category -->
         <div id="pepper" class="product-group active">
             <div class="product-card" style="position:relative;">
-                <span class="product-badge">Export Standard</span>
+                <span class="product-badge">Code: 18001</span>
                 <div class="product-info">
-                    <h4>Black Pepper (Whole)</h4>
-                    <p>Bold, aromatic single-origin peppercorns. Density &ge; 550 g/l, Size &ge; 4mm, Moisture &le; 12%.</p>
+                    <h4>Black Pepper Whole (550 g/l)</h4>
+                    <p>Density &ge; 550 g/l, Moisture &le; 12%, Foreign Matter &le; 0%, Size &ge; 4mm. Dark brown to black wrinkled peppercorn. FOB: $9,200/MT | Ex-Work: $9,000/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" style="position:relative;">
+                <span class="product-badge">Code: 18002</span>
                 <div class="product-info">
-                    <h4>White Pepper (Whole)</h4>
-                    <p>Rich flavor, fully ripened seeds. Density &ge; 630 g/l, Size &ge; 4mm, Moisture &le; 12%.</p>
+                    <h4>White Pepper Whole (630 g/l)</h4>
+                    <p>Density &ge; 630 g/l, Moisture &le; 12%, Foreign Matter &le; 0%, Size &ge; 4mm. Made from ripe pepper berries with outer skin removed. FOB: $12,200/MT | Ex-Work: $12,000/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" style="position:relative;">
+                <span class="product-badge">Code: 18003</span>
                 <div class="product-info">
-                    <h4>Fine Ground Black Pepper</h4>
-                    <p>Pure ground black pepper milled to 40 mesh standard. Moisture &le; 12%.</p>
+                    <h4>Fine Ground Black Pepper (40 Mesh)</h4>
+                    <p>Density: 40 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Pure ground black pepper milled to fine powder. FOB: $9,700/MT | Ex-Work: $9,500/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" style="position:relative;">
+                <span class="product-badge">Code: 18004</span>
                 <div class="product-info">
-                    <h4>Fine Ground White Pepper</h4>
-                    <p>Smooth, gourmet milled white pepper processed to 60 mesh standard. Moisture &le; 12%.</p>
+                    <h4>Fine Ground White Pepper (60 Mesh)</h4>
+                    <p>Density: 60 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Smooth, gourmet milled white pepper powder. FOB: $12,200/MT | Ex-Work: $12,000/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" style="position:relative;">
+                <span class="product-badge">Code: 18005</span>
                 <div class="product-info">
-                    <h4>Crushed Black Pepper</h4>
-                    <p>Coarse crushed black pepper milled to 10-20 mesh standard. Moisture &le; 12%.</p>
+                    <h4>Crushed Black Pepper (10-20 Mesh)</h4>
+                    <p>Density: 10-20 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Coarse crushed black pepper for food processing. FOB: $9,700/MT | Ex-Work: $9,500/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-info">
                     <h4>Diced Pearl Pepper & Blends</h4>
-                    <p>Diced pearl pepper, pure pepper powder, and classic Pepper & Salt seasoning mix packets.</p>
+                    <p>Diced pearl pepper, pure pepper powder, and classic Pepper & Salt seasoning mix packets. Flexible packaging size.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -1016,7 +1018,7 @@
             <div class="product-card">
                 <div class="product-info">
                     <h4>Finest Rice Flour</h4>
-                    <p>Premium gluten-free fine rice flour for versatile everyday cooking, noodles, and baking.</p>
+                    <p>Premium gluten-free fine rice flour for versatile everyday cooking, noodles, and baking. Sourced for global retail & bulk.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -1068,46 +1070,70 @@
             </div>
         </div>
 
-        <!-- Pepper Product Tier Specifications Table -->
+        <!-- Master Product Specification Matrix -->
         <div style="margin-top: 3rem;">
-            <h4 style="text-align: center; color: var(--brand-black); margin-bottom: 1rem; font-size: 1.4rem;">Pepper Quality Tiers & Sourcing Specifications</h4>
+            <h4 style="text-align: center; color: var(--brand-black); margin-bottom: 1rem; font-size: 1.4rem;">Master Pepper Export Pricing & Specification Table</h4>
             <div class="table-responsive">
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th>Quality Tier</th>
-                            <th>Certifications & Compliance</th>
-                            <th>Key Product Features</th>
-                            <th>Target Export Markets</th>
+                            <th>Code</th>
+                            <th>Product Name</th>
+                            <th>Technical Specification</th>
+                            <th>Packaging Sizes</th>
+                            <th>Ex-Work (USD/MT)</th>
+                            <th>FOB (USD/MT)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Safe Pepper (Whole & Ground)</strong></td>
-                            <td>Global GAP, GMP, HACCP Certified</td>
-                            <td>Clean, fully matured peppercorns, steam-sterilized, foreign matter &le; 0%.</td>
-                            <td>EU, USA, Japan, Australia</td>
+                            <td><strong>18001</strong></td>
+                            <td>Black Pepper Whole 550 g/l</td>
+                            <td>Density: 550 g/l | Moisture: &le;12% | Foreign: &le;0% | Size: &ge;4mm</td>
+                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
+                            <td>$9,000</td>
+                            <td><strong>$9,200</strong></td>
                         </tr>
                         <tr>
-                            <td><strong>Organic Pepper (Whole & Ground)</strong></td>
-                            <td>EU Organic & USDA Organic Certified</td>
-                            <td>Single-origin specialty region, 100% organic, full farm-to-pack audit traceability.</td>
-                            <td>EU, North America, High-end Specialty</td>
+                            <td><strong>18002</strong></td>
+                            <td>White Pepper Whole 630 g/l</td>
+                            <td>Density: 630 g/l | Moisture: &le;12% | Foreign: &le;0% | Size: &ge;4mm</td>
+                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
+                            <td>$12,000</td>
+                            <td><strong>$12,200</strong></td>
                         </tr>
                         <tr>
-                            <td><strong>Non-Organic Pepper (Whole & Ground)</strong></td>
-                            <td>GMP, HACCP Food Safety Compliant</td>
-                            <td>Clean, fully matured, minimal chemical use, stable scalable volume, steam-sterilized.</td>
-                            <td>Mass Retail, Food Service, Re-packers</td>
+                            <td><strong>18003</strong></td>
+                            <td>Fine Ground Black Pepper 40 Mesh</td>
+                            <td>Density: 40 mesh | Moisture: &le;12% | Cleaned, dried, sorted</td>
+                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
+                            <td>$9,500</td>
+                            <td><strong>$9,700</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>18004</strong></td>
+                            <td>Fine Ground White Pepper 60 Mesh</td>
+                            <td>Density: 60 mesh | Moisture: &le;12% | Outer skin removed</td>
+                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
+                            <td>$12,000</td>
+                            <td><strong>$12,200</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>18005</strong></td>
+                            <td>Crushed Black Pepper 10-20 Mesh</td>
+                            <td>Density: 10-20 mesh | Moisture: &le;12% | Steam sterilised</td>
+                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
+                            <td>$9,500</td>
+                            <td><strong>$9,700</strong></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <p style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.8rem; text-align: center;">* All SKUs available formats: 25kg Bulk Bags, 1kg, 650g, 500g, and Custom Private Label Retail Packaging.</p>
+            <p style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.8rem; text-align: center;">* Prices are open for volume negotiation. Steam sterilization applied to all lots.</p>
         </div>
     </section>
 
-    <!-- Global Export & Pricing Comparison -->
+    <!-- Global Export & Pricing Benchmarks -->
     <section class="section" id="pricing" style="background-color: #F8F6F0;">
         <div class="section-header">
             <h3>Global Export Footprint & Pricing Benchmarks</h3>
@@ -1121,16 +1147,21 @@
                     <li><strong>New Zealand:</strong> Thai Heng Limited</li>
                     <li><strong>USA:</strong> BNE Investments</li>
                     <li><strong>France:</strong> P&eacute;pites d'Or Khmer</li>
-                    <li><strong>Australia & Korea:</strong> Strategic market expansion partners</li>
+                    <li><strong>Australia:</strong> Direct Wholesale & Asian Grocery Channels</li>
                 </ul>
             </div>
             <div class="info-card" style="border-left-color: var(--spice-orange);">
-                <h4>Market Positioning Strategy</h4>
-                <p>Positioned in the <strong>Value Premium</strong> segment. Cambodia offers an authentic single-origin pepper surplus (17,000–20,000 MT production vs 500 MT domestic demand) featuring high essential oil content, GI-linked sourcing options, and strict steam-sterilization.</p>
+                <h4>Australian Retail & Foodservice Competitor Benchmarks</h4>
+                <ul>
+                    <li><strong>Mainstream Retail Black Pepper:</strong> AUD $2.70 – $12.20 / 100g (Median: AUD $5.92/100g). Private label sets entry price points.</li>
+                    <li><strong>Specialty Kampot PGI Pepper:</strong> Premium tier commands AUD $28.57 – $65.00 / 100g in gourmet outlets.</li>
+                    <li><strong>Foodservice Wholesale (1kg Conventional):</strong> Median price AUD $26.00/kg (Trumps, MasterFoods, Hoyt's).</li>
+                    <li><strong>Foodservice Wholesale (1kg Certified Organic):</strong> AUD $52.95 – $65.20/kg (Honest to Goodness, Santos Organics).</li>
+                </ul>
             </div>
         </div>
 
-        <!-- Price Comparison Table -->
+        <!-- International Price Comparison Table -->
         <div style="margin-top: 2.5rem;">
             <h4 style="text-align: center; color: var(--brand-black); margin-bottom: 1rem; font-size: 1.4rem;">International Bulk Pepper Indicative Price Comparison (USD/MT)</h4>
             <div class="table-responsive">
@@ -1146,27 +1177,27 @@
                         <tr>
                             <td><strong>Cambodia (Two Parrots Black Pepper Whole)</strong></td>
                             <td>550 g/l</td>
-                            <td><strong>$8,622</strong></td>
+                            <td><strong>$9,200 (FOB)</strong></td>
                         </tr>
                         <tr>
                             <td><strong>Cambodia (Two Parrots White Pepper Whole)</strong></td>
                             <td>630 g/l</td>
-                            <td><strong>$10,800</strong></td>
+                            <td><strong>$12,200 (FOB)</strong></td>
                         </tr>
                         <tr>
                             <td><strong>Cambodia (Two Parrots Ground Black Pepper)</strong></td>
                             <td>40 mesh</td>
-                            <td><strong>$9,531</strong></td>
+                            <td><strong>$9,700 (FOB)</strong></td>
                         </tr>
                         <tr>
                             <td><strong>Cambodia (Two Parrots Ground White Pepper)</strong></td>
                             <td>60 mesh</td>
-                            <td><strong>$11,250</strong></td>
+                            <td><strong>$12,200 (FOB)</strong></td>
                         </tr>
                         <tr>
                             <td><strong>Cambodia (Two Parrots Crushed Black Pepper)</strong></td>
                             <td>10–20 mesh</td>
-                            <td><strong>$9,531</strong></td>
+                            <td><strong>$9,700 (FOB)</strong></td>
                         </tr>
                         <tr>
                             <td>Vietnam Black Pepper</td>
@@ -1196,6 +1227,187 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </section>
+
+    <!-- Australian Biosecurity & Regulatory Compliance Section -->
+    <section class="section" id="compliance">
+        <div class="section-header">
+            <h3>Australian Biosecurity, Regulatory & Import Compliance</h3>
+        </div>
+        
+        <div class="grid-2">
+            <div class="info-card">
+                <h4>DAFF Biosecurity & BICON Pathways</h4>
+                <ul>
+                    <li><strong>Scenario 1 (&le;25 kg Bags):</strong> Recommended commercial import pathway. Requires clean, new packaging and manufacturer declaration proving commercial ground/cracked status. No biosecurity import permit required.</li>
+                    <li><strong>Scenario 2 (&gt;25 kg Bags):</strong> High-value freight requires pre-export inspection and an explicit Phytosanitary Certificate declaring freedom from <i>Trogoderma</i> (Khapra beetle) species.</li>
+                    <li><strong>Scenario 4 (Grinders):</strong> Whole peppercorns must be pre-packed in ready-for-sale grinders.</li>
+                    <li><strong>Country Action List (CAL):</strong> Sea containers from Cambodia are subject to mandatory wharf inspection. Containers must be clean and ISPM 15 timber compliant.</li>
+                </ul>
+            </div>
+            <div class="info-card" style="border-left-color: var(--spice-orange);">
+                <h4>Imported Food Inspection Scheme (IFIS) & Labelling</h4>
+                <ul>
+                    <li><strong>Risk Food Profile:</strong> Ready-to-eat dried pepper is classified as Risk Food due to <i>Salmonella</i> risk. Initial imports undergo 100% inspection (holding 5 samples, $n=5, c=0, m=$ not detected in 25g). Passes reduce inspection rates to 25% then 5%.</li>
+                    <li><strong>Food Standards Code (FSANZ):</strong> Strict adherence to Standard 1.4.1 (Contaminants), Standard 1.4.2 (MRLs), and Standard 1.3.1 (Additives). Pure pepper requires 0% foreign matter and steam sterilization.</li>
+                    <li><strong>Country of Origin (COOL):</strong> Must comply with Australian Consumer Law text origin statements ("Product of Cambodia").</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem;" class="info-card" style="border-left-color: var(--heritage-green);">
+            <h4>Pre-Shipment Certificate of Analysis (COA) Mandatory Testing Matrix</h4>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Test Parameter</th>
+                            <th>Target Standard / Criterion</th>
+                            <th>Regulatory & Quality Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pathogen Control</strong></td>
+                            <td>Salmonella: 5 sample units ($n=5, c=0$), Not detected in 25g</td>
+                            <td>DAFF IFIS Risk Food Criterion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Moisture Content</strong></td>
+                            <td>&le; 12.0% (Whole & Fine Ground), &le; 13.0% (White Ground)</td>
+                            <td>Codex CXS 326-2017 & Two Parrots Spec</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Extraneous & Foreign Matter</strong></td>
+                            <td>0.0% Foreign Matter / Insects / Debris</td>
+                            <td>Cleaned & Steam Sterilised Line</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chemical Residues</strong></td>
+                            <td>Pesticides, Heavy Metals compliant with FSANZ Schedule 20 MRLs</td>
+                            <td>FSANZ Standard 1.4.2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2026 Overseas Sales Data Section -->
+    <section class="section" id="sales2026" style="background-color: #F8F6F0;">
+        <div class="section-header">
+            <h3>2026 Overseas Market Sales & Distribution Log</h3>
+        </div>
+        
+        <p style="text-align: center; margin-bottom: 1.5rem; color: var(--charcoal);">Summary of international shipments executed across Q2–Q3 2026 for peppercorns and value-added flour lines.</p>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Product Category</th>
+                        <th>Unit</th>
+                        <th>Total QTY</th>
+                        <th>April 2026</th>
+                        <th>May 2026</th>
+                        <th>June 2026</th>
+                        <th>July 2026</th>
+                        <th>Target Overseas Market</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Peppercorn (Black & White)</td>
+                        <td>KG</td>
+                        <td>500</td>
+                        <td>250</td>
+                        <td>-</td>
+                        <td>250</td>
+                        <td>-</td>
+                        <td><strong>New Zealand</strong></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Peppercorn (Black & White)</td>
+                        <td>KG</td>
+                        <td>2,500</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>2,500</td>
+                        <td><strong>Australia</strong></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Peppercorn (Black & White)</td>
+                        <td>KG</td>
+                        <td>100</td>
+                        <td>-</td>
+                        <td>100</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><strong>Japan</strong></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Assorted Flour Mixes (Finest Rice, Glutinous, Tapioca, Pancake, Tempura, Fried Banana)</td>
+                        <td>MT</td>
+                        <td>22</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>22</td>
+                        <td>-</td>
+                        <td><strong>USA</strong></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Assorted Flour Mixes (Finest Rice, Glutinous, Tapioca, Pancake, Tempura, Fried Banana)</td>
+                        <td>MT</td>
+                        <td>11</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>11</td>
+                        <td>-</td>
+                        <td><strong>France</strong></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Assorted Flour Mixes (Finest Rice, Glutinous, Pancake, Tempura, Fried Banana)</td>
+                        <td>MT</td>
+                        <td>10</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>10</td>
+                        <td>-</td>
+                        <td><strong>Australia</strong></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Assorted Flour Mixes (Finest Rice, Glutinous, Pancake, Tempura, Fried Banana)</td>
+                        <td>MT</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>-</td>
+                        <td>5</td>
+                        <td>-</td>
+                        <td><strong>New Zealand</strong></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Assorted Flour Mixes (Finest Rice, Glutinous, Pancake, Tempura, Fried Banana)</td>
+                        <td>MT</td>
+                        <td>10</td>
+                        <td>-</td>
+                        <td>10</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><strong>Japan</strong></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -1255,7 +1467,7 @@
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2026</div>
-                <p>Targeting 500 MT total black/white pepper volume across domestic and export markets. Scaling brand presence and instant noodle production lines while integrating 1,000 farmers across 10 agricultural cooperatives.</p>
+                <p>Targeting 500 MT total black/white pepper volume across domestic and export markets. Executed 2,500 kg pepper and 10 MT flour exports to Australia. Scaling brand presence while integrating 1,000 farmers across 10 agricultural cooperatives.</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2027 – 2029</div>
@@ -1344,15 +1556,15 @@
     <footer id="contact">
         <div class="footer-grid">
             <div class="footer-col">
-			<a href="https://twoparrotsenterprise.com/" target="_blank" rel="noopener noreferrer">
-				<img src="images/logo1.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
-			</a>
-			<a href="https://www.two-parrots.com" target="_blank" rel="noopener noreferrer">
-				<img src="images/logo.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
-			</a>
-			<a href="https://twoparrotsgroup.com.au/" target="_blank" rel="noopener noreferrer">
-				<img src="images/logo2.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
-			</a>
+                <a href="https://twoparrotsenterprise.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/logo1.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+                </a>
+                <a href="https://www.two-parrots.com" target="_blank" rel="noopener noreferrer">
+                    <img src="images/logo.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+                </a>
+                <a href="https://twoparrotsgroup.com.au/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/logo2.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+                </a>
                 <p style="font-size:0.85rem; color:#AAA; margin-bottom:1rem;">Professional & Trustworthy Social Agribusiness Partner.</p>
                 <p style="font-size:0.85rem; color:#AAA;">Private Limited Company Reg No: 1000547726 (MOC-00053270)</p>
             </div>
@@ -1377,7 +1589,6 @@
 
     <!-- Interactive Scripts -->
     <script>
-        // Category Switcher
         function showCategory(catId) {
             const groups = document.querySelectorAll('.product-group');
             const tabs = document.querySelectorAll('.cat-tab');
@@ -1389,7 +1600,6 @@
             event.currentTarget.classList.add('active');
         }
 
-        // Mobile Menu Toggle logic
         function toggleMobileMenu() {
             const btn = document.getElementById('mobileMenuBtn');
             const nav = document.getElementById('navMenu');
@@ -1422,7 +1632,6 @@
             }
         }
 
-        // Auto-close mobile drawer when window resizes back to desktop width
         window.addEventListener('resize', () => {
             if (window.innerWidth > 900) {
                 closeMobileMenu();
