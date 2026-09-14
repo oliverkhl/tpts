@@ -764,6 +764,79 @@
             .hero h2 { font-size: 2rem; }
             .hero p { font-size: 1rem; }
         }
+		/* Container & Wrapper */
+.partner-logos-container {
+    margin-top: 2.5rem;
+    background: var(--pure-white, #FFFFFF);
+    padding: 1.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    text-align: center;
+    overflow: hidden; /* Prevents horizontal scrollbars */
+}
+
+.partner-logos-container h4 {
+    color: var(--brand-black, #231F20);
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* Marquee Outer Mask */
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Sliding Track */
+.marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 4rem; /* Spacing between logos */
+    animation: scrollRightToLeft 20s linear infinite;
+}
+
+/* Pause Scrolling on Hover */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* Logo Items */
+.partner-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.partner-logo-item img {
+    max-height: 55px;
+    width: auto;
+    object-fit: contain;
+    /* Full color setting */
+    filter: none;
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+
+.partner-logo-item img:hover {
+    transform: scale(1.08);
+}
+
+/* Keyframe Animation: Right to Left */
+@keyframes scrollRightToLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Moves exactly half the width for a seamless loop */
+    }
+}
     </style>
 </head>
 <body>
@@ -901,21 +974,36 @@
                 </div>
             </div>
 
-            <!-- International Development Partner Logos Showcase -->
-            <div class="partner-logos-container">
-                <h4>International Development Partners</h4>
-                <div class="partner-logos-grid">
-                    <div class="partner-logo-item">
-                        <img src="images/australian-aid-capred.png" alt="Australian Aid & CAPRED Logo">
-                    </div>
-                    <div class="partner-logo-item">
-                        <img src="images/eu-giz.png" alt="German Cooperation, European Union & GIZ Logo">
-                    </div>
-                    <div class="partner-logo-item">
-                        <img src="images/adb-frontier.png" alt="ADB Frontier Logo">
-                    </div>
-                </div>
-            </div>
+						<!-- International Development Partner Logos Showcase (Smooth Infinite Marquee) -->
+						<div class="partner-logos-container">
+						<h4>Actively Collaborating With International Development Partners</h4>
+    
+						<div class="marquee-wrapper">
+						<div class="marquee-track">
+						<!-- First Set of Logos -->
+						<div class="partner-logo-item">
+						<img src="images/australian-aid-capred.png" alt="Australian Aid & CAPRED Logo">
+						</div>
+						<div class="partner-logo-item">
+						<img src="images/eu-giz.png" alt="German Cooperation, European Union & GIZ Logo">
+						</div>
+						<div class="partner-logo-item">
+						<img src="images/adb-frontier.png" alt="ADB Frontier Logo">
+						</div>
+
+						<!-- Duplicate Set for Seamless Continuous Loop -->
+						<div class="partner-logo-item">
+						<img src="images/australian-aid-capred.png" alt="Australian Aid & CAPRED Logo">
+						</div>
+						<div class="partner-logo-item">
+						<img src="images/eu-giz.png" alt="German Cooperation, European Union & GIZ Logo">
+						</div>
+						<div class="partner-logo-item">
+						<img src="images/adb-frontier.png" alt="ADB Frontier Logo">
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
     </section>
 
@@ -937,7 +1025,7 @@
                 <span class="product-badge">Code: 18001</span>
                 <div class="product-info">
                     <h4>Black Pepper Whole (550 g/l)</h4>
-                    <p>Density &ge; 550 g/l, Moisture &le; 12%, Foreign Matter &le; 0%, Size &ge; 4mm. Dark brown to black wrinkled peppercorn. FOB: $9,200/MT | Ex-Work: $---/MT.</p>
+                    <p>Density &ge; 550 g/l, Moisture &le; 12%, Foreign Matter &le; 0%, Size &ge; 4mm. Dark brown to black wrinkled peppercorn. FOB: $-,---/MT | Ex-Work: $---/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -945,7 +1033,7 @@
                 <span class="product-badge">Code: 18002</span>
                 <div class="product-info">
                     <h4>White Pepper Whole (630 g/l)</h4>
-                    <p>Density &ge; 630 g/l, Moisture &le; 12%, Foreign Matter &le; 0%, Size &ge; 4mm. Made from ripe pepper berries with outer skin removed. FOB: $12,200/MT | Ex-Work: $12,000/MT.</p>
+                    <p>Density &ge; 630 g/l, Moisture &le; 12%, Foreign Matter &le; 0%, Size &ge; 4mm. Made from ripe pepper berries with outer skin removed. FOB: $-,---/MT | Ex-Work: $-,---/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -953,7 +1041,7 @@
                 <span class="product-badge">Code: 18003</span>
                 <div class="product-info">
                     <h4>Fine Ground Black Pepper (40 Mesh)</h4>
-                    <p>Density: 40 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Pure ground black pepper milled to fine powder. FOB: $9,700/MT | Ex-Work: $9,500/MT.</p>
+                    <p>Density: 40 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Pure ground black pepper milled to fine powder. FOB: $-,---/MT | Ex-Work: $-,---/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -961,7 +1049,7 @@
                 <span class="product-badge">Code: 18004</span>
                 <div class="product-info">
                     <h4>Fine Ground White Pepper (60 Mesh)</h4>
-                    <p>Density: 60 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Smooth, gourmet milled white pepper powder. FOB: $12,200/MT | Ex-Work: $12,000/MT.</p>
+                    <p>Density: 60 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Smooth, gourmet milled white pepper powder. FOB: $-,---/MT | Ex-Work: $-,---/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -969,7 +1057,7 @@
                 <span class="product-badge">Code: 18005</span>
                 <div class="product-info">
                     <h4>Crushed Black Pepper (10-20 Mesh)</h4>
-                    <p>Density: 10-20 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Coarse crushed black pepper for food processing. FOB: $9,700/MT | Ex-Work: $9,500/MT.</p>
+                    <p>Density: 10-20 mesh, Moisture &le; 12%, Foreign Matter &le; 0%. Coarse crushed black pepper for food processing. FOB: $-,---/MT | Ex-Work: $-,---/MT.</p>
                     <a href="#contact" class="btn-primary" style="text-align:center;">Request Specs</a>
                 </div>
             </div>
@@ -1059,41 +1147,41 @@
                             <td><strong>18001</strong></td>
                             <td>Black Pepper Whole 550 g/l</td>
                             <td>Density: 550 g/l | Moisture: &le;12% | Foreign: &le;0% | Size: &ge;4mm</td>
-                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
-                            <td>$9,000</td>
-                            <td><strong>$9,200</strong></td>
+                            <td>Flexible Packaging</td>
+                            <td>$-,---</td>
+                            <td><strong>$-,---</strong></td>
                         </tr>
                         <tr>
                             <td><strong>18002</strong></td>
                             <td>White Pepper Whole 630 g/l</td>
                             <td>Density: 630 g/l | Moisture: &le;12% | Foreign: &le;0% | Size: &ge;4mm</td>
-                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
-                            <td>$12,000</td>
-                            <td><strong>$12,200</strong></td>
+                            <td>Flexible Packaging</td>
+                            <td>$-,---</td>
+                            <td><strong>$-,---</strong></td>
                         </tr>
                         <tr>
                             <td><strong>18003</strong></td>
                             <td>Fine Ground Black Pepper 40 Mesh</td>
                             <td>Density: 40 mesh | Moisture: &le;12% | Cleaned, dried, sorted</td>
-                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
-                            <td>$9,500</td>
-                            <td><strong>$9,700</strong></td>
+                            <td>Flexible Packaging</td>
+                            <td>$-,---</td>
+                            <td><strong>$-,---</strong></td>
                         </tr>
                         <tr>
                             <td><strong>18004</strong></td>
                             <td>Fine Ground White Pepper 60 Mesh</td>
                             <td>Density: 60 mesh | Moisture: &le;12% | Outer skin removed</td>
-                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
-                            <td>$12,000</td>
-                            <td><strong>$12,200</strong></td>
+                            <td>Flexible Packaging</td>
+                            <td>$-,---</td>
+                            <td><strong>$-,---</strong></td>
                         </tr>
                         <tr>
                             <td><strong>18005</strong></td>
                             <td>Crushed Black Pepper 10-20 Mesh</td>
                             <td>Density: 10-20 mesh | Moisture: &le;12% | Steam sterilised</td>
-                            <td>25kg Bulk, 1000g, 500g, Partner Brands</td>
-                            <td>$9,500</td>
-                            <td><strong>$9,700</strong></td>
+                            <td>Flexible Packaging</td>
+                            <td>$-,---</td>
+                            <td><strong>$-,---</strong></td>
                         </tr>
                     </tbody>
                 </table>
