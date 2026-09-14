@@ -837,6 +837,77 @@
         transform: translateX(-50%); /* Moves exactly half the width for a seamless loop */
     }
 }
+
+/* Compliance Marquee Styling */
+.compliance-marquee-container {
+    margin-top: 2.5rem;
+    background: var(--pure-white, #FFFFFF);
+    padding: 1.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    text-align: center;
+    overflow: hidden;
+}
+
+.compliance-marquee-container h4 {
+    color: var(--brand-black, #231F20);
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* Marquee Mask and Animation Track */
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 3.5rem; /* Spacing between logos */
+    animation: scrollRightToLeft 22s linear infinite;
+}
+
+/* Pause animation when user hovers over logos */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.partner-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.partner-logo-item img {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+
+.partner-logo-item img:hover {
+    transform: scale(1.1);
+}
+
+/* Smooth Right-to-Left Infinite Loop Keyframe */
+@keyframes scrollRightToLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
     </style>
 </head>
 <body>
@@ -1201,6 +1272,54 @@
         <div class="section-header">
             <h3>Biosecurity, Regulatory & Import Compliance</h3>
         </div>
+		<!-- Quality & Compliance Certifications Showcase (Smooth Infinite Marquee) -->
+<div class="partner-logos-container compliance-marquee-container">
+    <h4>Recognized Quality, Safety & Compliance Standards</h4>
+    
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+            <!-- First Set of Compliance Logos -->
+            <div class="partner-logo-item">
+                <img src="images/europos-komisija.png" alt="European Commission Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/fda.png" alt="FDA Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/usda-organic.png" alt="USDA Organic Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/globalgap.png" alt="GLOBALG.A.P. Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/haccp.png" alt="HACCP Certified Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/gmp.png" alt="GMP Certified Logo">
+            </div>
+
+            <!-- Duplicate Set for Seamless Continuous Loop -->
+            <div class="partner-logo-item">
+                <img src="images/europos-komisija.png" alt="European Commission Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/fda.png" alt="FDA Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/usda-organic.png" alt="USDA Organic Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/globalgap.png" alt="GLOBALG.A.P. Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/haccp.png" alt="HACCP Certified Logo">
+            </div>
+            <div class="partner-logo-item">
+                <img src="images/gmp.png" alt="GMP Certified Logo">
+            </div>
+        </div>
+    </div>
+</div>
         
     </section>
 
