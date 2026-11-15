@@ -908,6 +908,20 @@
         transform: translateX(-50%);
     }
 }
+
+/* Keep the logo strip still for people who ask the browser to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .marquee-duplicate {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -924,7 +938,7 @@
     <!-- Navigation Header -->
     <header>
         <div class="nav-container">
-            <a onclick="navigateTo('home')" class="image-logo">
+            <a href="#home" class="image-logo" onclick="navigateTo('home'); return false;">
                 <img src="images/logo.png" alt="Two Parrots Trading Solutions Logo">
                 <div class="logo-text">
                     <h1>Two Parrots</h1>
@@ -933,7 +947,7 @@
             </a>
 
             <!-- Mobile Hamburger Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" aria-controls="navMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1063,14 +1077,14 @@
 						</div>
 
 						<!-- Duplicate Set for Seamless Continuous Loop -->
-						<div class="partner-logo-item">
-						<img src="images/australian-aid-capred.png" alt="Australian Aid & CAPRED Logo">
+						<div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+						<img src="images/australian-aid-capred.png" alt="">
 						</div>
-						<div class="partner-logo-item">
-						<img src="images/eu-giz.png" alt="German Cooperation, European Union & GIZ Logo">
+						<div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+						<img src="images/eu-giz.png" alt="">
 						</div>
-						<div class="partner-logo-item">
-						<img src="images/adb-frontier.png" alt="ADB Frontier Logo">
+						<div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+						<img src="images/adb-frontier.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -1085,9 +1099,9 @@
         </div>
 
         <div class="category-tabs">
-            <button class="cat-tab active" onclick="showCategory('pepper')">Pepper Line</button>
-            <button class="cat-tab" onclick="showCategory('flours')">Flour Line</button>
-            <button class="cat-tab" onclick="showCategory('noodles')">Rice Noodles & Mixes</button>
+            <button class="cat-tab active" type="button" onclick="showCategory('pepper')">Pepper Line</button>
+            <button class="cat-tab" type="button" onclick="showCategory('flours')">Flour Line</button>
+            <button class="cat-tab" type="button" onclick="showCategory('noodles')">Rice Noodles & Mixes</button>
         </div>
 
         <!-- Pepper Category -->
@@ -1266,6 +1280,7 @@
         <div class="section-header">
             <h3>Global Export Footprint</h3>
         </div>
+    </section>
 
     <!-- Australian Biosecurity & Regulatory Compliance Section -->
     <section class="section" id="compliance">
@@ -1299,23 +1314,23 @@
             </div>
 
             <!-- Duplicate Set for Seamless Continuous Loop -->
-            <div class="partner-logo-item">
-                <img src="images/europos-komisija.png" alt="European Commission Logo">
+            <div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+                <img src="images/europos-komisija.png" alt="">
             </div>
-            <div class="partner-logo-item">
-                <img src="images/fda.png" alt="FDA Logo">
+            <div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+                <img src="images/fda.png" alt="">
             </div>
-            <div class="partner-logo-item">
-                <img src="images/usda-organic.png" alt="USDA Organic Logo">
+            <div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+                <img src="images/usda-organic.png" alt="">
             </div>
-            <div class="partner-logo-item">
-                <img src="images/globalgap.png" alt="GLOBALG.A.P. Logo">
+            <div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+                <img src="images/globalgap.png" alt="">
             </div>
-            <div class="partner-logo-item">
-                <img src="images/haccp.png" alt="HACCP Certified Logo">
+            <div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+                <img src="images/haccp.png" alt="">
             </div>
-            <div class="partner-logo-item">
-                <img src="images/gmp.png" alt="GMP Certified Logo">
+            <div class="partner-logo-item marquee-duplicate" aria-hidden="true">
+                <img src="images/gmp.png" alt="">
             </div>
         </div>
     </div>
@@ -1476,7 +1491,7 @@
             <div class="cert-badge">EU Organic</div>
             <div class="cert-badge">FDA Registered</div>
             <div class="cert-badge">HALAL Compliant</div>
-            <div class="cert-badge">EU Registrered</div>
+            <div class="cert-badge">EU Registered</div>
             <div class="cert-badge">AUD BICON</div>
         </div>
     </section>
@@ -1498,7 +1513,7 @@
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2026</div>
-                <p>Expand production line and facility for globle market, Scaling brand presence while integrating 1,000 farmers across 10 agricultural cooperatives.</p>
+                <p>Expand production line and facility for global market, Scaling brand presence while integrating 1,000 farmers across 10 agricultural cooperatives.</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2027 – 2029</div>
@@ -1591,10 +1606,10 @@
                     <img src="images/logo.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
                 </a>
                 <a href="https://twoparrotsgroup.com.au/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/logo2.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+                    <img src="images/logo2.png" alt="Two Parrots Group Australia logo" class="footer-logo">
                 </a>
                 <a href="https://twoparrotsenterprise.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/logo1.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+                    <img src="images/logo1.png" alt="Two Parrots Enterprise logo" class="footer-logo">
                 </a>
                 <p style="font-size:0.85rem; color:#AAA; margin-bottom:1rem;">Professional & Trustworthy Social Agribusiness Partner.</p>
                 <p style="font-size:0.85rem; color:#AAA;">Private Limited Company Reg No: 1000547726 (MOC-00053270)</p>
@@ -1631,6 +1646,16 @@
             event.currentTarget.classList.add('active');
         }
 
+        function syncMobileNav() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('navMenu');
+            const mobile = window.matchMedia('(max-width: 900px)').matches;
+            const open = nav.classList.contains('active');
+            // Closed drawer links were still in the tab order. inert removes them until the menu opens.
+            nav.inert = mobile && !open;
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
         function toggleMobileMenu() {
             const btn = document.getElementById('mobileMenuBtn');
             const nav = document.getElementById('navMenu');
@@ -1641,6 +1666,7 @@
             nav.classList.toggle('active');
             backdrop.classList.toggle('active');
             body.classList.toggle('menu-open');
+            syncMobileNav();
         }
 
         function closeMobileMenu() {
@@ -1653,6 +1679,7 @@
             nav.classList.remove('active');
             backdrop.classList.remove('active');
             body.classList.remove('menu-open');
+            syncMobileNav();
         }
 
         function navigateTo(targetId) {
@@ -1666,8 +1693,12 @@
         window.addEventListener('resize', () => {
             if (window.innerWidth > 900) {
                 closeMobileMenu();
+            } else {
+                syncMobileNav();
             }
         });
+
+        syncMobileNav();
     </script>
 </body>
 </html>
