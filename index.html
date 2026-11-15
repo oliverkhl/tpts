@@ -202,7 +202,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/banner.png') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/banner.jpg') center/cover no-repeat;
             color: var(--pure-white);
             padding: 5rem 2rem;
             text-align: center;
@@ -272,6 +272,7 @@
             padding: 4.5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            scroll-margin-top: 12px;
         }
 
         .section-header {
@@ -333,56 +334,6 @@
 
         .data-table tr:nth-child(even) {
             background-color: #FDFBF7;
-        }
-
-        /* Partner Logos Showcase */
-        .partner-logos-container {
-            margin-top: 2rem;
-            background: var(--pure-white);
-            padding: 1.5rem 2rem;
-            border-radius: 8px;
-            border: 1px solid #EAEAEA;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            text-align: center;
-        }
-
-        .partner-logos-container h4 {
-            color: var(--brand-black);
-            font-size: 1.1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-            letter-spacing: 0.5px;
-        }
-
-        .partner-logos-grid {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .partner-logo-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.5rem;
-        }
-
-        .partner-logo-item img {
-            max-height: 55px;
-            width: auto;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.85;
-            transition: all 0.3s ease;
-        }
-
-        .partner-logo-item img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.05);
         }
 
         /* Products Tab Navigation */
@@ -764,150 +715,71 @@
             .hero h2 { font-size: 2rem; }
             .hero p { font-size: 1rem; }
         }
-		/* Container & Wrapper */
-.partner-logos-container {
-    margin-top: 2.5rem;
-    background: var(--pure-white, #FFFFFF);
-    padding: 1.8rem 1rem;
-    border-radius: 8px;
-    border: 1px solid #EAEAEA;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    text-align: center;
-    overflow: hidden; /* Prevents horizontal scrollbars */
-}
+        /* Partner and compliance logo strips. One set of rules; the later copy used to override this. */
+        .partner-logos-container,
+        .compliance-marquee-container {
+            margin-top: 2.5rem;
+            background: var(--pure-white);
+            padding: 1.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #EAEAEA;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            text-align: center;
+            overflow: hidden;
+        }
 
-.partner-logos-container h4 {
-    color: var(--brand-black, #231F20);
-    font-size: 1.1rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.5px;
-}
+        .partner-logos-container h4,
+        .compliance-marquee-container h4 {
+            color: var(--brand-black);
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
 
-/* Marquee Outer Mask */
-.marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
 
-/* Sliding Track */
-.marquee-track {
-    display: flex;
-    align-items: center;
-    width: max-content;
-    gap: 4rem; /* Spacing between logos */
-    animation: scrollRightToLeft 20s linear infinite;
-}
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            gap: 3.5rem;
+            animation: scrollRightToLeft 22s linear infinite;
+        }
 
-/* Pause Scrolling on Hover */
-.marquee-wrapper:hover .marquee-track {
-    animation-play-state: paused;
-}
+        .marquee-wrapper:hover .marquee-track {
+            animation-play-state: paused;
+        }
 
-/* Logo Items */
-.partner-logo-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-}
+        .partner-logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+        }
 
-.partner-logo-item img {
-    max-height: 55px;
-    width: auto;
-    object-fit: contain;
-    /* Full color setting */
-    filter: none;
-    opacity: 1;
-    transition: transform 0.3s ease;
-}
+        .partner-logo-item img {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: none;
+            opacity: 1;
+            transition: transform 0.3s ease;
+        }
 
-.partner-logo-item img:hover {
-    transform: scale(1.08);
-}
+        .partner-logo-item img:hover {
+            transform: scale(1.1);
+        }
 
-/* Keyframe Animation: Right to Left */
-@keyframes scrollRightToLeft {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%); /* Moves exactly half the width for a seamless loop */
-    }
-}
-
-/* Compliance Marquee Styling */
-.compliance-marquee-container {
-    margin-top: 2.5rem;
-    background: var(--pure-white, #FFFFFF);
-    padding: 1.8rem 1rem;
-    border-radius: 8px;
-    border: 1px solid #EAEAEA;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    text-align: center;
-    overflow: hidden;
-}
-
-.compliance-marquee-container h4 {
-    color: var(--brand-black, #231F20);
-    font-size: 1.1rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.5px;
-}
-
-/* Marquee Mask and Animation Track */
-.marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.marquee-track {
-    display: flex;
-    align-items: center;
-    width: max-content;
-    gap: 3.5rem; /* Spacing between logos */
-    animation: scrollRightToLeft 22s linear infinite;
-}
-
-/* Pause animation when user hovers over logos */
-.marquee-wrapper:hover .marquee-track {
-    animation-play-state: paused;
-}
-
-.partner-logo-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-}
-
-.partner-logo-item img {
-    max-height: 60px;
-    width: auto;
-    object-fit: contain;
-    filter: none;
-    opacity: 1;
-    transition: transform 0.3s ease;
-}
-
-.partner-logo-item img:hover {
-    transform: scale(1.1);
-}
-
-/* Smooth Right-to-Left Infinite Loop Keyframe */
-@keyframes scrollRightToLeft {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
+        @keyframes scrollRightToLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
 /* Keep the logo strip still for people who ask the browser to reduce motion. */
 @media (prefers-reduced-motion: reduce) {
@@ -958,7 +830,6 @@
                 <ul>
                     <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
                     <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
-                    <li><a href="#pricing" onclick="closeMobileMenu()">Markets</a></li>
                     <li><a href="#compliance" onclick="closeMobileMenu()">Biosecurity & Compliance</a></li>
                     <li><a href="#sales2026" onclick="closeMobileMenu()">2026 Sales Data</a></li>
                     <li><a href="#team" onclick="closeMobileMenu()">Company</a></li>
@@ -1067,24 +938,24 @@
 						<div class="marquee-track">
 						<!-- First Set of Logos -->
 						<div class="partner-logo-item">
-						<img src="images/australian-aid-capred.png" alt="Australian Aid & CAPRED Logo">
+						<img src="images/australian-aid-capred.jpg" alt="Australian Aid & CAPRED Logo">
 						</div>
 						<div class="partner-logo-item">
-						<img src="images/eu-giz.png" alt="German Cooperation, European Union & GIZ Logo">
+						<img src="images/eu-giz.jpg" alt="German Cooperation, European Union & GIZ Logo">
 						</div>
 						<div class="partner-logo-item">
-						<img src="images/adb-frontier.png" alt="ADB Frontier Logo">
+						<img src="images/adb-frontier.jpg" alt="ADB Frontier Logo">
 						</div>
 
 						<!-- Duplicate Set for Seamless Continuous Loop -->
 						<div class="partner-logo-item marquee-duplicate" aria-hidden="true">
-						<img src="images/australian-aid-capred.png" alt="">
+						<img src="images/australian-aid-capred.jpg" alt="">
 						</div>
 						<div class="partner-logo-item marquee-duplicate" aria-hidden="true">
-						<img src="images/eu-giz.png" alt="">
+						<img src="images/eu-giz.jpg" alt="">
 						</div>
 						<div class="partner-logo-item marquee-duplicate" aria-hidden="true">
-						<img src="images/adb-frontier.png" alt="">
+						<img src="images/adb-frontier.jpg" alt="">
 						</div>
 					</div>
 				</div>
@@ -1099,9 +970,9 @@
         </div>
 
         <div class="category-tabs">
-            <button class="cat-tab active" type="button" onclick="showCategory('pepper')">Pepper Line</button>
-            <button class="cat-tab" type="button" onclick="showCategory('flours')">Flour Line</button>
-            <button class="cat-tab" type="button" onclick="showCategory('noodles')">Rice Noodles & Mixes</button>
+            <button class="cat-tab active" type="button" onclick="showCategory('pepper', this)">Pepper Line</button>
+            <button class="cat-tab" type="button" onclick="showCategory('flours', this)">Flour Line</button>
+            <button class="cat-tab" type="button" onclick="showCategory('noodles', this)">Rice Noodles & Mixes</button>
         </div>
 
         <!-- Pepper Category -->
@@ -1272,13 +1143,6 @@
                 </table>
             </div>
             <p style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.8rem; text-align: center;">* Prices are open for volume negotiation. Steam sterilization applied to all lots.</p>
-        </div>
-    </section>
-
-    <!-- Global Export & Pricing Benchmarks -->
-    <section class="section" id="pricing" style="background-color: #F8F6F0;">
-        <div class="section-header">
-            <h3>Global Export Footprint</h3>
         </div>
     </section>
 
@@ -1635,15 +1499,13 @@
 
     <!-- Interactive Scripts -->
     <script>
-        function showCategory(catId) {
-            const groups = document.querySelectorAll('.product-group');
-            const tabs = document.querySelectorAll('.cat-tab');
+        function showCategory(catId, tab) {
+            document.querySelectorAll('.product-group').forEach(group => group.classList.remove('active'));
+            document.querySelectorAll('.cat-tab').forEach(button => button.classList.remove('active'));
 
-            groups.forEach(g => g.classList.remove('active'));
-            tabs.forEach(t => t.classList.remove('active'));
-
-            document.getElementById(catId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            const group = document.getElementById(catId);
+            if (group) group.classList.add('active');
+            if (tab) tab.classList.add('active');
         }
 
         function syncMobileNav() {
@@ -1695,6 +1557,12 @@
                 closeMobileMenu();
             } else {
                 syncMobileNav();
+            }
+        });
+
+        document.addEventListener('keydown', (keyEvent) => {
+            if (keyEvent.key === 'Escape' && document.getElementById('navMenu').classList.contains('active')) {
+                closeMobileMenu();
             }
         });
 
