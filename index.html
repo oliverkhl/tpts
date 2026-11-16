@@ -7,743 +7,358 @@
     <!-- Brand Typography: Gabarito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700;800&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
     
     <style>
         :root {
             /* Primary Colors */
-            --primary-red: #CB2027;      
-            --pure-white: #FFFFFF;       
-            --brand-black: #231F20;      
+            --primary-red: #CB2027;
+            --pure-white: #FFFFFF;
+            --brand-black: #231F20;
 
             /* Secondary Colors */
-            --deep-crimson: #9E1C20;     
-            --spice-orange: #F9A01B;     
-            --heritage-green: #2C9947;   
-            --golden-yellow: #E7E614;    
+            --deep-crimson: #9E1C20;
+            --spice-orange: #F9A01B;
+            --heritage-green: #2C9947;
+            --golden-yellow: #E7E614;
 
             /* Logo Gradient */
-            --orange-start: #F9A01B;     
-            --orange-end: #CB2027;       
+            --orange-start: #F9A01B;
+            --orange-end: #CB2027;
 
             /* Tertiary Colors */
-            --warm-yellow: #FFD23B;      
-            --rice-cream: #F3E5C3;       
-            --charcoal: #333333;         
+            --warm-yellow: #FFD23B;
+            --rice-cream: #F3E5C3;
+            --charcoal: #333333;
             --light-bg: #FDFBF7;
+
+            --line: #E7E0D2;
+            --header-offset: 7.25rem;
+            --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+            --sans: "Gabarito", sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Gabarito', sans-serif;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
             color: var(--brand-black);
             background-color: var(--light-bg);
-            line-height: 1.6;
+            font-family: var(--sans);
+            font-size: 1.02rem;
+            line-height: 1.7;
         }
+        body.menu-open { overflow: hidden; }
+        img { max-width: 100%; height: auto; }
+        a { color: inherit; }
+        :focus-visible { outline: 2px solid var(--spice-orange); outline-offset: 3px; }
 
-        body.menu-open {
-            overflow: hidden;
-        }
-
-        /* Top Bar & Header */
-        .top-bar {
-            background-color: var(--deep-crimson);
-            color: var(--pure-white);
-            padding: 6px 2rem;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
+        /* Utility bar + sticky header, in the same stacked arrangement as a trade-house site */
         header {
-            background-color: var(--pure-white);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: var(--pure-white);
+            border-bottom: 1px solid var(--line);
         }
-
+        .top-bar {
+            background: var(--deep-crimson);
+            color: var(--rice-cream);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.45rem 1.5rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.02em;
+        }
+        .top-bar a { color: var(--pure-white); text-decoration: none; }
+        .top-bar a:hover { color: var(--warm-yellow); }
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 2rem;
+            gap: 1.25rem;
+            padding: 0 1.25rem;
+            min-height: 76px;
             position: relative;
         }
-
-        .image-logo { 
-            display: flex; 
-            align-items: center; 
-            gap: 12px;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; 
-            will-change: transform; 
-            cursor: pointer; 
-            text-decoration: none;
-        }
-        .image-logo img { height: 50px; width: auto; pointer-events: none; }
-        .image-logo:hover { transform: scale(1.05) !important; }
-
-        .logo-text h1 {
-            font-size: 1.5rem !important;
-            background: linear-gradient(135deg, var(--orange-start), var(--orange-end)) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px !important;
-            font-weight: 800 !important;
-            margin: 0 !important;
-            line-height: 1 !important;
-        }
-        .logo-text span {
-            font-size: 0.85rem !important;
-            color: var(--orange-end) !important;
-            font-weight: 600 !important;
-            display: block !important;
-            margin-top: 2px !important;
-        }
-
-        /* Desktop Navigation Links */
-        nav ul {
+        .image-logo {
             display: flex;
-            list-style: none;
-            gap: 1.8rem;
             align-items: center;
-        }
-
-        nav a {
+            gap: 12px;
             text-decoration: none;
             color: var(--brand-black);
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-            white-space: nowrap;
+            flex: 0 0 auto;
         }
-
+        .image-logo img { height: 52px; width: auto; }
+        .logo-text h1 {
+            font-family: var(--sans);
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            line-height: 1;
+            margin: 0;
+            background: linear-gradient(135deg, var(--orange-start), var(--orange-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-text span {
+            display: block;
+            margin-top: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            color: var(--orange-end);
+        }
+        nav { margin-left: auto; }
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 0.15rem;
+            list-style: none;
+        }
+        nav a {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            padding: 1.55rem 0.55rem 1.35rem;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
         nav a:hover {
             color: var(--primary-red);
+            border-bottom-color: var(--spice-orange);
         }
-
-        .btn-primary {
-            background-color: var(--primary-red);
-            color: var(--pure-white);
-            padding: 0.6rem 1.4rem;
-            border-radius: 4px;
+        .btn-primary, .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
+            font-family: var(--sans);
             font-weight: 700;
-            display: inline-block;
-            transition: background 0.2s ease;
-            border: none;
+            font-size: 0.92rem;
+            letter-spacing: 0.01em;
+            padding: 0.85rem 1.35rem;
+            border-radius: 2px;
+            border: 1px solid transparent;
             cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
         }
-
-        .btn-primary:hover {
-            background-color: var(--deep-crimson);
+        .btn-primary {
+            background: var(--primary-red);
+            color: var(--pure-white);
+            border-color: var(--primary-red);
         }
+        .btn-primary:hover { background: var(--deep-crimson); border-color: var(--deep-crimson); }
+        .btn-orange { background: var(--spice-orange); border-color: var(--spice-orange); color: var(--brand-black); }
+        .btn-orange:hover { background: var(--warm-yellow); border-color: var(--warm-yellow); color: var(--brand-black); }
+        .header-cta-btn { margin-left: 0.35rem; padding: 0.7rem 1.05rem; white-space: nowrap; }
+        .btn-ghost {
+            background: transparent;
+            color: var(--pure-white);
+            border-color: rgba(255, 255, 255, 0.75);
+        }
+        .btn-ghost:hover { background: var(--pure-white); color: var(--brand-black); }
 
-        /* Hamburger Button */
         .mobile-menu-btn {
             display: none;
+            margin-left: auto;
             background: none;
             border: none;
             cursor: pointer;
-            padding: 5px;
-            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            padding: 8px;
             flex-direction: column;
             justify-content: space-around;
-            width: 32px;
-            height: 32px;
+            z-index: 1001;
         }
-
         .mobile-menu-btn span {
+            display: block;
             width: 100%;
-            height: 3px;
-            background-color: var(--brand-black);
-            border-radius: 2px;
-            transition: all 0.3s ease;
+            height: 2px;
+            background: var(--brand-black);
+            transition: transform 0.25s ease, opacity 0.25s ease;
         }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-            background-color: var(--primary-red);
-        }
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-            background-color: var(--primary-red);
-        }
-
+        .mobile-menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--primary-red); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--primary-red); }
         .menu-backdrop {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
+            inset: 0;
+            background: rgba(35, 31, 32, 0.45);
             z-index: 998;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
-        .menu-backdrop.active {
-            display: block;
-            opacity: 1;
-        }
+        .menu-backdrop.active { display: block; }
 
-        /* Hero Section */
+        /* Full-bleed hero, copy set to the left */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/banner.jpg') center/cover no-repeat;
+            position: relative;
+            min-height: calc(100svh - 7.1rem);
+            display: flex;
+            align-items: flex-end;
             color: var(--pure-white);
-            padding: 5rem 2rem;
-            text-align: center;
+            background:
+                linear-gradient(180deg, rgba(35, 31, 32, 0.18) 0%, rgba(35, 31, 32, 0.45) 42%, rgba(35, 31, 32, 0.78) 100%),
+                url('images/banner.jpg') center/cover no-repeat;
+            padding: 4.5rem 1.5rem 4rem;
         }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: var(--rice-cream);
-        }
-
+        .hero-content { max-width: 1120px; width: 100%; margin: 0 auto; }
         .tag-line {
             display: inline-block;
-            background-color: var(--primary-red);
-            color: var(--pure-white);
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            margin-bottom: 0.9rem;
+            color: var(--spice-orange);
+            font-size: 0.78rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
         }
+        .hero h2 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+            line-height: 1.06;
+            max-width: 14em;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            max-width: 38rem;
+            font-size: 1.12rem;
+            line-height: 1.6;
+            color: var(--rice-cream);
+            margin-bottom: 1.6rem;
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
-        /* Core Values Bar */
         .values-bar {
             background: var(--pure-white);
-            border-bottom: 3px solid var(--primary-red);
-            padding: 2rem 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border-bottom: 1px solid var(--line);
         }
-
         .values-container {
-            max-width: 1200px;
+            max-width: 1120px;
             margin: 0 auto;
+            padding: 1.6rem 1.5rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            padding: 0 2rem;
-            text-align: center;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
         }
-
         .value-card h4 {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 600;
             color: var(--primary-red);
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.25rem;
         }
+        .value-card p { font-size: 0.88rem; color: var(--charcoal); line-height: 1.5; }
 
-        .value-card p {
-            font-size: 0.85rem;
-            color: var(--charcoal);
-        }
-
-        /* General Section Styling */
         .section {
-            padding: 4.5rem 2rem;
-            max-width: 1200px;
+            padding: 5rem 1.5rem;
+            max-width: 1120px;
             margin: 0 auto;
-            scroll-margin-top: 12px;
+            scroll-margin-top: 3.25rem;
         }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
+        .section.band {
+            max-width: none;
+            background: var(--rice-cream);
         }
-
+        .section.band > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+        .section-header { margin-bottom: 2.2rem; max-width: 40rem; }
         .section-header h3 {
-            font-size: 2.2rem;
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: clamp(2rem, 3.4vw, 3.1rem);
+            line-height: 1.12;
             color: var(--brand-black);
-            font-weight: 800;
-            text-transform: uppercase;
         }
-
-        .section-header h3::after {
-            content: '';
+        .section-header h3::before {
+            content: "";
             display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary-red);
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
+            width: 2.4rem;
+            height: 2px;
+            background: var(--spice-orange);
+            margin-bottom: 0.85rem;
         }
+        .section-lead { color: var(--charcoal); margin: -0.6rem 0 1.6rem; max-width: 42rem; }
 
-        /* Data Tables Styling */
-        .table-responsive {
-            overflow-x: auto;
-            margin-top: 1.5rem;
-            background: var(--pure-white);
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            border: 1px solid #EAEAEA;
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.9rem;
-        }
-
-        .data-table th, .data-table td {
-            padding: 1rem 1.2rem;
-            border-bottom: 1px solid #EAEAEA;
-        }
-
-        .data-table th {
-            background-color: var(--deep-crimson);
-            color: var(--pure-white);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-
-        .data-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .data-table tr:nth-child(even) {
-            background-color: #FDFBF7;
-        }
-
-        /* Products Tab Navigation */
-        .category-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .cat-tab {
-            padding: 0.6rem 1.4rem;
-            border: 2px solid var(--primary-red);
-            background: var(--pure-white);
-            color: var(--primary-red);
-            font-weight: 700;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .cat-tab.active, .cat-tab:hover {
-            background: var(--primary-red);
-            color: var(--pure-white);
-        }
-
-        .product-group {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.8rem;
-        }
-
-        .product-group.active {
-            display: grid;
-        }
-
-        .product-card {
-            background: var(--pure-white);
-            border-radius: 8px;
-            border: 1px solid #EAEAEA;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            transition: transform 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .product-badge {
-            background-color: var(--heritage-green);
-            color: var(--pure-white);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            border-radius: 3px;
-        }
-
-        .product-info {
-            padding: 1.4rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .product-info h4 {
-            color: var(--deep-crimson);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-info p {
-            font-size: 0.9rem;
-            color: var(--charcoal);
-            margin-bottom: 1rem;
-        }
-
-        /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-bottom: 2.8rem;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
         }
-
-        .stat-card {
-            background: var(--pure-white);
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            border-top: 4px solid var(--primary-red);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-        }
-
+        .stat-card { padding: 1.4rem 1.1rem 1.4rem 0; }
+        .stat-card + .stat-card { padding-left: 1.2rem; border-left: 1px solid var(--line); }
         .stat-card .number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-red);
-            margin-bottom: 0.3rem;
-        }
-
-        .stat-card .label {
-            font-size: 0.85rem;
-            color: var(--charcoal);
+            font-family: var(--serif);
+            font-size: clamp(1.7rem, 2.4vw, 2.3rem);
             font-weight: 600;
+            color: var(--primary-red);
+            line-height: 1.1;
+            margin-bottom: 0.35rem;
+        }
+        .stat-card .label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--charcoal);
         }
 
-        /* Production & QMS Cards */
-        .grid-2 {
+        .grid-2, .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            gap: 1.25rem;
         }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-        }
-
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
         .info-card {
             background: var(--pure-white);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 5px solid var(--primary-red);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--primary-red);
+            padding: 1.7rem 1.5rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
-
+        .info-card:hover { transform: translateY(-3px); }
         .info-card h4 {
-            color: var(--primary-red);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .info-card ul {
-            list-style-type: square;
-            margin-left: 1.2rem;
-            font-size: 0.9rem;
-            color: var(--charcoal);
-        }
-
-        .info-card ul li {
-            margin-bottom: 0.4rem;
-        }
-
-        /* Roadmap Timeline */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            padding: 1.5rem 2rem;
-            background: var(--pure-white);
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            border-left: 6px solid var(--spice-orange);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-        }
-
-        .timeline-year {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--primary-red);
-            margin-bottom: 0.4rem;
-        }
-
-        /* Leadership Grid */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .team-card {
-            background: var(--pure-white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #EAEAEA;
-        }
-
-        .team-card h4 {
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            font-weight: 600;
             color: var(--brand-black);
-            font-size: 1.15rem;
-            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
         }
+        .info-card p, .info-card li { color: var(--charcoal); font-size: 0.98rem; }
+        .info-card ul { margin-left: 1.1rem; }
+        .info-card li { margin-bottom: 0.45rem; }
 
-        .team-card .role {
-            color: var(--primary-red);
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .team-card .exp {
-            font-size: 0.8rem;
-            color: var(--heritage-green);
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .team-card p {
-            font-size: 0.85rem;
-            color: var(--charcoal);
-        }
-
-        /* Certifications & Footer */
-        .cert-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .cert-badge {
-            background: var(--rice-cream);
-            color: var(--brand-black);
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            border: 1px solid #E2D2AA;
-        }
-
-        footer {
-            background-color: var(--brand-black);
-            color: var(--pure-white);
-            padding: 4rem 2rem 1.5rem 2rem;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 {
-            color: var(--primary-red);
-            font-size: 1.2rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.6rem;
-        }
-
-        .footer-col a {
-            color: #CCC;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .footer-col a:hover {
-            color: var(--pure-white);
-        }
-        
-        .footer-logo { 
-            height: 80px; 
-            margin-bottom: 20px; 
-            display: inline-block; 
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease; 
-            will-change: transform; 
-            cursor: pointer;
-        }
-
-        .footer-logo:hover { 
-            transform: scale(1.1) translateY(-4px); 
-            filter: drop-shadow(0 6px 12px rgba(203, 32, 39, 0.35));
-        }
-
-        .footer-logo:active { 
-            transform: scale(0.98) translateY(0);
-        }
-            
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #444;
-            padding-top: 1.5rem;
-            font-size: 0.85rem;
-            color: #AAA;
-        }
-
-        /* Responsive Navigation Styles */
-        @media (max-width: 900px) {
-            .top-bar {
-                flex-direction: column;
-                gap: 4px;
-                text-align: center;
-                font-size: 0.75rem;
-                padding: 6px 1rem;
-            }
-
-            .nav-container {
-                padding: 0.6rem 1.2rem;
-            }
-
-            .logo-text h1 {
-                font-size: 1.2rem !important;
-            }
-
-            .logo-text span {
-                font-size: 0.75rem !important;
-            }
-
-            .image-logo img {
-                height: 40px;
-            }
-
-            .header-cta-btn {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--pure-white);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-                max-height: 0;
-                overflow-x: hidden;
-                overflow-y: auto;
-                transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 999;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            nav.active {
-                max-height: calc(100vh - 70px);
-                border-bottom: 4px solid var(--primary-red);
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-                padding: 0.4rem 0;
-            }
-
-            nav ul li {
-                width: 100%;
-            }
-
-            nav a {
-                display: block;
-                padding: 0.85rem 1.5rem;
-                font-size: 1rem;
-                border-bottom: 1px solid #F0F0F0;
-                font-weight: 700;
-            }
-
-            nav a:hover, nav a:active {
-                background-color: var(--light-bg);
-                color: var(--primary-red);
-                padding-left: 1.8rem;
-                transition: all 0.2s ease;
-            }
-
-            .hero h2 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-        }
-        /* Partner and compliance logo strips. One set of rules; the later copy used to override this. */
         .partner-logos-container,
         .compliance-marquee-container {
-            margin-top: 2.5rem;
+            margin-top: 2.2rem;
             background: var(--pure-white);
-            padding: 1.8rem 1rem;
-            border-radius: 8px;
-            border: 1px solid #EAEAEA;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--line);
+            padding: 1.5rem 1rem 1.2rem;
             text-align: center;
             overflow: hidden;
         }
-
         .partner-logos-container h4,
         .compliance-marquee-container h4 {
-            color: var(--brand-black);
-            font-size: 1.1rem;
-            font-weight: 800;
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
         }
-
-        .marquee-wrapper {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
+        .marquee-wrapper { width: 100%; overflow: hidden; }
         .marquee-track {
             display: flex;
             align-items: center;
@@ -751,64 +366,295 @@
             gap: 3.5rem;
             animation: scrollRightToLeft 22s linear infinite;
         }
-
-        .marquee-wrapper:hover .marquee-track {
-            animation-play-state: paused;
-        }
-
-        .partner-logo-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.5rem;
-        }
-
+        .marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
+        .partner-logo-item { display: flex; align-items: center; justify-content: center; padding: 0.4rem; }
         .partner-logo-item img {
             max-height: 60px;
             width: auto;
             object-fit: contain;
             filter: none;
             opacity: 1;
-            transition: transform 0.3s ease;
+            transition: transform 0.25s ease;
         }
-
-        .partner-logo-item img:hover {
-            transform: scale(1.1);
-        }
-
+        .partner-logo-item img:hover { transform: scale(1.06); }
         @keyframes scrollRightToLeft {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-/* Keep the logo strip still for people who ask the browser to reduce motion. */
-@media (prefers-reduced-motion: reduce) {
-    .marquee-track {
-        animation: none;
-        width: 100%;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.6rem;
+        }
+        .cat-tab {
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.7rem 1.05rem;
+            border-radius: 2px;
+            border: 1px solid var(--line);
+            background: var(--pure-white);
+            color: var(--brand-black);
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .cat-tab:hover, .cat-tab.active {
+            background: var(--primary-red);
+            border-color: var(--primary-red);
+            color: var(--pure-white);
+        }
+        .product-group {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.1rem;
+        }
+        .product-group.active { display: grid; }
+        .product-card {
+            position: relative;
+            background: var(--pure-white);
+            border: 1px solid var(--line);
+            padding: 1.4rem 1.3rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .product-card:hover { transform: translateY(-4px); border-color: var(--primary-red); }
+        .product-badge {
+            position: absolute;
+            top: 0.85rem;
+            right: 0.85rem;
+            background: var(--heritage-green);
+            color: var(--pure-white);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.45rem;
+        }
+        .product-info { display: flex; flex-direction: column; gap: 0.7rem; height: 100%; }
+        .product-info h4 {
+            font-family: var(--serif);
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--brand-black);
+            padding-right: 6.2rem;
+            line-height: 1.2;
+        }
+        .product-info p { color: var(--charcoal); font-size: 0.95rem; flex-grow: 1; }
+        .product-info .btn-primary { margin-top: auto; }
 
-    .marquee-duplicate {
-        display: none;
-    }
-}
-    </style>
+        .table-block { margin-top: 3rem; }
+        .table-block h4 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            background: var(--pure-white);
+            border: 1px solid var(--line);
+        }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .data-table th, .data-table td {
+            padding: 0.85rem 0.95rem;
+            text-align: left;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+        .data-table th {
+            background: var(--deep-crimson);
+            color: var(--pure-white);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table tbody tr:hover { background: var(--rice-cream); }
+        .table-note { font-size: 0.85rem; color: var(--charcoal); margin-top: 0.8rem; }
+
+        .timeline { display: grid; gap: 0.9rem; }
+        .timeline-item {
+            background: var(--pure-white);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--spice-orange);
+            padding: 1.2rem 1.3rem;
+        }
+        .timeline-year {
+            font-family: var(--serif);
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--primary-red);
+            margin-bottom: 0.25rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .team-card {
+            background: var(--pure-white);
+            border: 1px solid var(--line);
+            padding: 1.3rem 1.15rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .team-card:hover { transform: translateY(-3px); border-color: var(--primary-red); }
+        .team-card h4 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        .team-card .role {
+            color: var(--primary-red);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .team-card .exp {
+            color: var(--heritage-green);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0.2rem 0 0.55rem;
+        }
+        .team-card p { font-size: 0.88rem; color: var(--charcoal); }
+        .cert-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
+        .cert-badge {
+            background: var(--rice-cream);
+            color: var(--brand-black);
+            border: 1px solid var(--line);
+            padding: 0.4rem 0.7rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        footer {
+            background: var(--brand-black);
+            color: var(--rice-cream);
+            scroll-margin-top: var(--header-offset);
+        }
+        .footer-cta {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.6rem 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1.5rem;
+            border-bottom: 1px solid rgba(243, 229, 195, 0.25);
+        }
+        .footer-cta h2 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            line-height: 1.15;
+            color: var(--pure-white);
+            max-width: 16em;
+        }
+        .footer-cta p { margin-top: 0.55rem; font-size: 0.92rem; }
+        .footer-cta-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+        .footer-grid {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.2rem 1.5rem 1rem;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1.2fr;
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            color: var(--spice-orange);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.45rem; }
+        footer .footer-col a { color: var(--rice-cream); text-decoration: none; }
+        footer .footer-col a:hover { color: var(--warm-yellow); }
+        .footer-logo { height: 72px; width: auto; margin: 0 0.55rem 0.8rem 0; }
+        .footer-logos { display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 0.4rem; }
+        .copyright {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 1.4rem;
+            border-top: 1px solid rgba(243, 229, 195, 0.2);
+            font-size: 0.82rem;
+            color: var(--rice-cream);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .marquee-track { animation: none; width: 100%; flex-wrap: wrap; justify-content: center; }
+            .marquee-duplicate { display: none; }
+            .product-card, .info-card, .team-card, .partner-logo-item img { transition: none; }
+            .product-card:hover, .info-card:hover, .team-card:hover, .partner-logo-item img:hover { transform: none; }
+        }
+
+        @media (max-width: 1100px) {
+            .values-container, .stats-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-card + .stat-card { border-left: none; padding-left: 0; }
+            .product-group { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 900px) {
+            .top-bar { padding: 0.4rem 1rem; font-size: 0.72rem; }
+            .top-aside { display: none; }
+            .section { scroll-margin-top: 7.5rem; }
+            .header-cta-btn { display: none; }
+            .mobile-menu-btn { display: flex; }
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--pure-white);
+                border-bottom: 3px solid var(--primary-red);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                z-index: 999;
+            }
+            nav.active { max-height: calc(100vh - 70px); overflow-y: auto; }
+            nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 0.3rem 0 0.6rem; }
+            nav a {
+                display: block;
+                padding: 0.9rem 1.15rem;
+                border-bottom: 1px solid var(--line);
+                font-size: 1rem;
+            }
+            nav a:hover { padding-left: 1.15rem; }
+            .hero { min-height: calc(100svh - 8.1rem); align-items: flex-end; padding: 3rem 1.1rem 2.4rem; }
+            .hero h2 { font-size: 2.35rem; }
+            .hero-actions, .footer-cta-actions { flex-direction: column; align-items: stretch; }
+            .values-container, .stats-grid, .grid-2, .grid-3, .team-grid, .footer-grid, .footer-cta {
+                grid-template-columns: 1fr;
+            }
+            .product-group.active { grid-template-columns: 1fr; }
+            .footer-cta, .values-container, .stats-grid { display: grid; }
+            .footer-cta { align-items: stretch; }
+            .section { padding: 3.2rem 1.1rem; }
+        }
+
+</style>
 </head>
 <body>
-
-    <!-- Top Contact Bar -->
-    <div class="top-bar">
-        <div class="footer-col">📍 Phnom Penh, Cambodia | <a href="tel:+85512628988">📞 Phone: +855 12 628 988</a> | <a href="mailto:tum@two-parrots.com">✉️ Email: tum@two-parrots.com</a></div>
-        <div>Social Agribusiness Partner | CAPRED Supported</div>
-    </div>
 
     <!-- Backdrop Overlay for Mobile Navigation -->
     <div class="menu-backdrop" id="menuBackdrop" onclick="closeMobileMenu()"></div>
 
-    <!-- Navigation Header -->
+    <!-- Utility bar and navigation stay together while the page scrolls -->
     <header>
+        <div class="top-bar">
+            <div>📍 Phnom Penh, Cambodia | <a href="tel:+85512628988">📞 Phone: +855 12 628 988</a> | <a href="mailto:tum@two-parrots.com">✉️ Email: tum@two-parrots.com</a></div>
+            <div class="top-aside">Social Agribusiness Partner | CAPRED Supported</div>
+        </div>
         <div class="nav-container">
             <a href="#home" class="image-logo" onclick="navigateTo('home'); return false;">
                 <img src="images/logo.png" alt="Two Parrots Trading Solutions Logo">
@@ -846,7 +692,10 @@
             <span class="tag-line">Bridging Farmers & Global Markets</span>
             <h2>Sustainable & Inclusive Value Chains in Cambodia</h2>
             <p>Connecting smallholder farmers, local partners, and international buyers through transparent, fair-trade, and high-quality agro-products.</p>
-            <a href="#products" class="btn-primary" style="background-color: var(--spice-orange);">View Product Catalog</a>
+            <div class="hero-actions">
+                <a href="#products" class="btn-primary btn-orange">View Product Catalog</a>
+                <a href="#contact" class="btn-ghost">Inquire Now</a>
+            </div>
         </div>
     </section>
 
@@ -1084,8 +933,8 @@
         </div>
 
         <!-- Master Product Specification Matrix -->
-        <div style="margin-top: 3rem;">
-            <h4 style="text-align: center; color: var(--brand-black); margin-bottom: 1rem; font-size: 1.4rem;">Master Pepper Export Pricing & Specification Table</h4>
+        <div class="table-block">
+            <h4>Master Pepper Export Pricing & Specification Table</h4>
             <div class="table-responsive">
                 <table class="data-table">
                     <thead>
@@ -1142,7 +991,7 @@
                     </tbody>
                 </table>
             </div>
-            <p style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.8rem; text-align: center;">* Prices are open for volume negotiation. Steam sterilization applied to all lots.</p>
+            <p class="table-note">* Prices are open for volume negotiation. Steam sterilization applied to all lots.</p>
         </div>
     </section>
 
@@ -1203,12 +1052,12 @@
     </section>
 
     <!-- 2026 Overseas Sales Data Section -->
-    <section class="section" id="sales2026" style="background-color: #F8F6F0;">
+    <section class="section band" id="sales2026">
         <div class="section-header">
             <h3>2026 Overseas Market Sales & Distribution Log</h3>
         </div>
         
-        <p style="text-align: center; margin-bottom: 1.5rem; color: var(--charcoal);">Summary of international shipments executed across Q2–Q3 2026 for peppercorns and value-added flour lines.</p>
+        <p class="section-lead">Summary of international shipments executed across Q2–Q3 2026 for peppercorns and value-added flour lines.</p>
 
         <div class="table-responsive">
             <table class="data-table">
@@ -1464,19 +1313,30 @@
 
     <!-- Contact & Footer -->
     <footer id="contact">
+        <div class="footer-cta">
+            <div>
+                <h2>Professional & Trustworthy Social Agribusiness Partner.</h2>
+                <p>Private Limited Company Reg No: 1000547726 (MOC-00053270)</p>
+            </div>
+            <div class="footer-cta-actions">
+                <a href="#contact" class="btn-primary btn-orange">Inquire Now</a>
+                <a href="#products" class="btn-ghost">View Product Catalog</a>
+            </div>
+        </div>
         <div class="footer-grid">
             <div class="footer-col">
-                <a href="https://www.two-parrots.com" target="_blank" rel="noopener noreferrer">
-                    <img src="images/logo.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
-                </a>
-                <a href="https://twoparrotsgroup.com.au/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/logo2.png" alt="Two Parrots Group Australia logo" class="footer-logo">
-                </a>
-                <a href="https://twoparrotsenterprise.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/logo1.png" alt="Two Parrots Enterprise logo" class="footer-logo">
-                </a>
-                <p style="font-size:0.85rem; color:#AAA; margin-bottom:1rem;">Professional & Trustworthy Social Agribusiness Partner.</p>
-                <p style="font-size:0.85rem; color:#AAA;">Private Limited Company Reg No: 1000547726 (MOC-00053270)</p>
+                <div class="footer-logos">
+                    <a href="https://www.two-parrots.com" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logo.png" alt="Two Parrots Trading Solutions Logo" class="footer-logo">
+                    </a>
+                    <a href="https://twoparrotsgroup.com.au/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logo2.png" alt="Two Parrots Group Australia logo" class="footer-logo">
+                    </a>
+                    <a href="https://twoparrotsenterprise.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logo1.png" alt="Two Parrots Enterprise logo" class="footer-logo">
+                    </a>
+                </div>
+                <p>Private Limited Company Reg No: 1000547726 (MOC-00053270)</p>
             </div>
             <div class="footer-col">
                 <h4>Contact Info</h4>
@@ -1489,7 +1349,7 @@
             </div>
             <div class="footer-col">
                 <h4>Head Office Address</h4>
-                <p style="font-size:0.85rem; color:#AAA;">#Workspace 1, Unit 8, No.1159, National Road No.2, Prek Tanu Village, Sangkat Chak Angrae Leu, Khan Mean Chey, Phnom Penh, Cambodia.</p>
+                <p>#Workspace 1, Unit 8, No.1159, National Road No.2, Prek Tanu Village, Sangkat Chak Angrae Leu, Khan Mean Chey, Phnom Penh, Cambodia.</p>
             </div>
         </div>
         <div class="copyright">
