@@ -114,27 +114,156 @@
             letter-spacing: 0.01em;
             color: var(--orange-end);
         }
-        nav { margin-left: auto; }
-        nav ul {
+        nav {
+            margin-left: auto;
             display: flex;
             align-items: center;
-            gap: 0.15rem;
+            gap: 0.35rem;
+            min-width: 0;
+        }
+        nav > ul {
+            display: flex;
+            align-items: center;
+            gap: 0.05rem;
             list-style: none;
         }
-        nav a {
-            display: inline-block;
-            text-decoration: none;
+        nav a, .caret {
+            font-family: var(--sans);
             color: var(--charcoal);
-            font-size: 0.82rem;
+        }
+        nav > ul > li > a,
+        .nav-row > a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 0.01em;
-            padding: 1.55rem 0.55rem 1.35rem;
+            padding: 1.45rem 0.35rem 1.25rem;
             border-bottom: 2px solid transparent;
+            white-space: nowrap;
             transition: color 0.2s ease, border-color 0.2s ease;
         }
-        nav a:hover {
+        nav > ul > li > a:hover,
+        .nav-row > a:hover,
+        li.is-current > a,
+        li.is-current > .nav-row > a {
             color: var(--primary-red);
             border-bottom-color: var(--spice-orange);
+        }
+        .nav-row { display: flex; align-items: center; }
+        .caret {
+            width: 1.4rem;
+            height: 1.4rem;
+            margin: 0 0.1rem 0 -0.15rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+        }
+        .caret::before {
+            content: "";
+            position: absolute;
+            left: 0.35rem;
+            top: 0.45rem;
+            border: 4px solid transparent;
+            border-top-color: currentColor;
+        }
+        .has-sub { position: relative; }
+        nav ul.submenu {
+            display: none;
+            position: absolute;
+            top: calc(100% - 2px);
+            left: 0;
+            min-width: 15.5rem;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            padding: 0.35rem 0;
+            background: var(--pure-white);
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 28px rgba(35, 31, 32, 0.08);
+            z-index: 30;
+        }
+        .submenu a {
+            display: block;
+            padding: 0.55rem 1rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--brand-black);
+            border-bottom: none;
+        }
+        .submenu a:hover,
+        .submenu a:focus-visible { background: var(--rice-cream); color: var(--primary-red); }
+        .site-search { position: relative; flex: 0 0 auto; }
+        .site-search label.visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        .site-search input {
+            width: 8.6rem;
+            border: 1px solid var(--line);
+            background: var(--light-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23333333' stroke-width='1.8'%3E%3Ccircle cx='7' cy='7' r='4.5'/%3E%3Cpath d='M10.5 10.5L14 14'/%3E%3C/svg%3E") 0.5rem 50% no-repeat;
+            border-radius: 2px;
+            padding: 0.48rem 0.55rem 0.48rem 1.7rem;
+            font: inherit;
+            font-size: 0.85rem;
+            color: var(--brand-black);
+        }
+        .site-search input:focus { border-color: var(--spice-orange); outline: none; }
+        .search-results {
+            position: absolute;
+            top: calc(100% + 4px);
+            right: 0;
+            width: 18.5rem;
+            max-height: 18rem;
+            overflow: auto;
+            margin: 0;
+            padding: 0.3rem 0;
+            list-style: none;
+            background: var(--pure-white);
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 28px rgba(35, 31, 32, 0.1);
+            z-index: 40;
+        }
+        .search-results button {
+            width: 100%;
+            text-align: left;
+            border: none;
+            background: transparent;
+            font: inherit;
+            color: var(--brand-black);
+            padding: 0.5rem 0.8rem;
+            cursor: pointer;
+        }
+        .search-results button small {
+            display: block;
+            color: var(--charcoal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .search-results button:hover,
+        .search-results button:focus,
+        .search-results button[aria-selected="true"] { background: var(--rice-cream); outline: none; }
+        .search-status {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+        }
+        .search-hit {
+            outline: 2px solid var(--spice-orange);
+            background: var(--rice-cream);
         }
         .btn-primary, .btn-ghost {
             display: inline-flex;
@@ -265,6 +394,7 @@
             margin: 0 auto;
             scroll-margin-top: 3.25rem;
         }
+        .product-group, #partnerships, #milestones, #csr { scroll-margin-top: 8rem; }
         .section.band {
             max-width: none;
             background: var(--rice-cream);
@@ -603,10 +733,15 @@
             .product-group { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
+        @media (min-width: 901px) {
+            .has-sub:hover > ul.submenu,
+            .has-sub:focus-within > ul.submenu,
+            .has-sub.open > ul.submenu { display: flex; }
+        }
         @media (max-width: 900px) {
             .top-bar { padding: 0.4rem 1rem; font-size: 0.72rem; }
             .top-aside { display: none; }
-            .section { scroll-margin-top: 7.5rem; }
+            .section, .product-group, #partnerships, #milestones, #csr { scroll-margin-top: 7.5rem; }
             .header-cta-btn { display: none; }
             .mobile-menu-btn { display: flex; }
             nav {
@@ -614,6 +749,9 @@
                 top: 100%;
                 left: 0;
                 right: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
                 background: var(--pure-white);
                 border-bottom: 3px solid var(--primary-red);
                 max-height: 0;
@@ -621,15 +759,33 @@
                 transition: max-height 0.3s ease;
                 z-index: 999;
             }
-            nav.active { max-height: calc(100vh - 70px); overflow-y: auto; }
-            nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 0.3rem 0 0.6rem; }
-            nav a {
+            .site-search { order: -1; }
+            nav.active { max-height: calc(100vh - 8rem); overflow-y: auto; }
+            nav > ul { flex-direction: column; align-items: stretch; gap: 0; padding: 0.2rem 0 0.6rem; }
+            nav > ul > li > a,
+            .nav-row > a {
                 display: block;
-                padding: 0.9rem 1.15rem;
+                flex: 1;
+                padding: 0.85rem 1rem;
                 border-bottom: 1px solid var(--line);
                 font-size: 1rem;
             }
-            nav a:hover { padding-left: 1.15rem; }
+            .nav-row { border-bottom: 1px solid var(--line); }
+            .nav-row > a { border-bottom: none; }
+            .caret { width: 2.6rem; height: 2.6rem; margin: 0; }
+            .has-sub.open > ul.submenu { display: flex; }
+            nav ul.submenu {
+                position: static;
+                min-width: 0;
+                border: none;
+                box-shadow: none;
+                padding: 0 0 0.3rem;
+                background: var(--light-bg);
+            }
+            .submenu a { padding: 0.7rem 1rem 0.7rem 1.6rem; border-bottom: 1px solid var(--line); }
+            .site-search { margin: 0.7rem 1rem 0.2rem; }
+            .site-search input { width: 100%; }
+            .search-results { position: static; width: auto; box-shadow: none; margin-top: 0.35rem; }
             .hero { min-height: calc(100svh - 8.1rem); align-items: flex-end; padding: 3rem 1.1rem 2.4rem; }
             .hero h2 { font-size: 2.35rem; }
             .hero-actions, .footer-cta-actions { flex-direction: column; align-items: stretch; }
@@ -674,12 +830,47 @@
             <!-- Navigation Drawer -->
             <nav id="navMenu">
                 <ul>
-                    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
-                    <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
-                    <li><a href="#compliance" onclick="closeMobileMenu()">Biosecurity & Compliance</a></li>
-                    <li><a href="#sales2026" onclick="closeMobileMenu()">2026 Sales Data</a></li>
-                    <li><a href="#team" onclick="closeMobileMenu()">Company</a></li>
+                    <li class="has-sub" data-nav="about">
+                        <div class="nav-row">
+                            <a href="#about">About</a>
+                            <button type="button" class="caret" aria-expanded="false" aria-controls="menu-about" aria-label="Show About sections"></button>
+                        </div>
+                        <ul class="submenu" id="menu-about">
+                            <li><a href="#about">Company Background</a></li>
+                            <li><a href="#partnerships">Distribution & Partners</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub" data-nav="products">
+                        <div class="nav-row">
+                            <a href="#products">Products</a>
+                            <button type="button" class="caret" aria-expanded="false" aria-controls="menu-products" aria-label="Show product lines"></button>
+                        </div>
+                        <ul class="submenu" id="menu-products">
+                            <li><a href="#pepper" data-tab="pepper">Pepper Line</a></li>
+                            <li><a href="#flours" data-tab="flours">Flour Line</a></li>
+                            <li><a href="#noodles" data-tab="noodles">Rice Noodles & Mixes</a></li>
+                        </ul>
+                    </li>
+                    <li data-nav="compliance"><a href="#compliance">Biosecurity & Compliance</a></li>
+                    <li data-nav="sales"><a href="#sales2026">2026 Sales Data</a></li>
+                    <li class="has-sub" data-nav="company">
+                        <div class="nav-row">
+                            <a href="#team">Company</a>
+                            <button type="button" class="caret" aria-expanded="false" aria-controls="menu-company" aria-label="Show Company sections"></button>
+                        </div>
+                        <ul class="submenu" id="menu-company">
+                            <li><a href="#milestones">Strategic Growth Roadmap</a></li>
+                            <li><a href="#team">Leadership</a></li>
+                            <li><a href="#csr">CSR & ESG</a></li>
+                        </ul>
+                    </li>
                 </ul>
+                <form class="site-search" id="siteSearch" role="search">
+                    <label class="visually-hidden" for="siteSearchInput">Search this page</label>
+                    <input id="siteSearchInput" type="search" placeholder="Search..." autocomplete="off" aria-autocomplete="list" aria-controls="searchResults" aria-expanded="false">
+                    <ul id="searchResults" class="search-results" role="listbox" hidden></ul>
+                    <div class="search-status" id="searchStatus" aria-live="polite"></div>
+                </form>
             </nav>
 
             <a href="#contact" class="btn-primary header-cta-btn">Inquire Now</a>
@@ -819,9 +1010,9 @@
         </div>
 
         <div class="category-tabs">
-            <button class="cat-tab active" type="button" onclick="showCategory('pepper', this)">Pepper Line</button>
-            <button class="cat-tab" type="button" onclick="showCategory('flours', this)">Flour Line</button>
-            <button class="cat-tab" type="button" onclick="showCategory('noodles', this)">Rice Noodles & Mixes</button>
+            <button class="cat-tab active" type="button" data-tab="pepper" onclick="showCategory('pepper', this)">Pepper Line</button>
+            <button class="cat-tab" type="button" data-tab="flours" onclick="showCategory('flours', this)">Flour Line</button>
+            <button class="cat-tab" type="button" data-tab="noodles" onclick="showCategory('noodles', this)">Rice Noodles & Mixes</button>
         </div>
 
         <!-- Pepper Category -->
@@ -1365,7 +1556,27 @@
 
             const group = document.getElementById(catId);
             if (group) group.classList.add('active');
+            if (!tab) tab = document.querySelector('.cat-tab[data-tab="' + catId + '"]');
             if (tab) tab.classList.add('active');
+        }
+
+        function closeSubmenus() {
+            const open = [...document.querySelectorAll('.has-sub.open')];
+            open.forEach(item => {
+                item.classList.remove('open');
+                const caret = item.querySelector('.caret');
+                if (caret) caret.setAttribute('aria-expanded', 'false');
+            });
+            return open.length > 0;
+        }
+
+        function closeSearch() {
+            const panel = document.getElementById('searchResults');
+            const input = document.getElementById('siteSearchInput');
+            const wasOpen = panel && !panel.hidden;
+            if (panel) panel.hidden = true;
+            if (input) input.setAttribute('aria-expanded', 'false');
+            return wasOpen;
         }
 
         function syncMobileNav() {
@@ -1401,6 +1612,8 @@
             nav.classList.remove('active');
             backdrop.classList.remove('active');
             body.classList.remove('menu-open');
+            closeSubmenus();
+            closeSearch();
             syncMobileNav();
         }
 
@@ -1420,10 +1633,200 @@
             }
         });
 
-        document.addEventListener('keydown', (keyEvent) => {
-            if (keyEvent.key === 'Escape' && document.getElementById('navMenu').classList.contains('active')) {
+        document.querySelectorAll('.caret').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.closest('.has-sub');
+                const willOpen = !item.classList.contains('open');
+                item.parentElement.querySelectorAll('.has-sub.open').forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('open');
+                        const otherCaret = other.querySelector('.caret');
+                        if (otherCaret) otherCaret.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                item.classList.toggle('open', willOpen);
+                button.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            });
+        });
+
+        document.getElementById('navMenu').addEventListener('click', (event) => {
+            const tabLink = event.target.closest('a[data-tab]');
+            if (tabLink) {
+                event.preventDefault();
+                showCategory(tabLink.dataset.tab);
                 closeMobileMenu();
+                const dest = document.getElementById(tabLink.getAttribute('href').slice(1));
+                if (dest) dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
             }
+            if (event.target.closest('#navMenu a')) closeMobileMenu();
+        });
+
+        const searchSections = [
+            ['about', 'about'],
+            ['partnerships', 'about'],
+            ['products', 'products'],
+            ['pepper', 'products'],
+            ['flours', 'products'],
+            ['noodles', 'products'],
+            ['compliance', 'compliance'],
+            ['sales2026', 'sales'],
+            ['milestones', 'company'],
+            ['team', 'company'],
+            ['csr', 'company']
+        ];
+        const searchIndex = [];
+        const seenSearch = new Set();
+        document.querySelectorAll('h3, h4, .cert-badge, .timeline-year, .stat-card .label, li').forEach(el => {
+            if (el.closest('#navMenu') || el.closest('.site-search')) return;
+            const title = el.innerText.replace(/\s+/g, ' ').trim();
+            if (title.length < 3 || title.length > 160) return;
+            const group = el.closest('.product-group');
+            const key = title.toLowerCase() + '|' + (group ? group.id : '');
+            if (seenSearch.has(key)) return;
+            seenSearch.add(key);
+            const target = el.closest('.product-card, .info-card, .team-card, .timeline-item, .stat-card, .cert-badge, h3, h4') || el;
+            searchIndex.push({
+                title,
+                el: target,
+                tab: group ? group.id : '',
+                kind: group ? 'Product' : (el.tagName === 'H3' ? 'Section' : 'On this page')
+            });
+        });
+
+        const searchForm = document.getElementById('siteSearch');
+        const searchInput = document.getElementById('siteSearchInput');
+        const searchResults = document.getElementById('searchResults');
+        const searchStatus = document.getElementById('searchStatus');
+        let searchHits = [];
+
+        function renderSearch(query) {
+            const needle = query.trim().toLowerCase();
+            searchResults.innerHTML = '';
+            searchHits = [];
+            if (needle.length < 2) {
+                searchResults.hidden = true;
+                searchInput.setAttribute('aria-expanded', 'false');
+                searchStatus.textContent = '';
+                return;
+            }
+            searchHits = searchIndex
+                .map(item => ({ item, at: (item.title).toLowerCase().indexOf(needle) }))
+                .filter(hit => hit.at !== -1)
+                .sort((a, b) => a.at - b.at || a.item.title.length - b.item.title.length)
+                .slice(0, 8);
+            if (!searchHits.length) {
+                searchResults.hidden = false;
+                searchInput.setAttribute('aria-expanded', 'true');
+                const empty = document.createElement('li');
+                empty.textContent = 'No matches';
+                empty.style.padding = '0.55rem 0.8rem';
+                searchResults.appendChild(empty);
+                searchStatus.textContent = 'No matches';
+                return;
+            }
+            searchHits.forEach((hit, index) => {
+                const li = document.createElement('li');
+                li.setAttribute('role', 'presentation');
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.setAttribute('role', 'option');
+                button.id = 'search-opt-' + index;
+                const name = document.createElement('span');
+                name.textContent = hit.item.title;
+                const kind = document.createElement('small');
+                kind.textContent = hit.item.kind;
+                button.append(name, kind);
+                button.addEventListener('click', () => openSearchHit(hit.item));
+                button.addEventListener('keydown', (event) => moveSearchFocus(event, index));
+                li.appendChild(button);
+                searchResults.appendChild(li);
+            });
+            searchResults.hidden = false;
+            searchInput.setAttribute('aria-expanded', 'true');
+            searchStatus.textContent = searchHits.length + (searchHits.length === 1 ? ' result' : ' results');
+        }
+
+        function openSearchHit(item) {
+            document.querySelectorAll('.search-hit').forEach(el => el.classList.remove('search-hit'));
+            if (item.tab) showCategory(item.tab);
+            closeSearch();
+            closeMobileMenu();
+            requestAnimationFrame(() => {
+                item.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                item.el.classList.add('search-hit');
+                window.setTimeout(() => item.el.classList.remove('search-hit'), 2500);
+            });
+        }
+
+        function moveSearchFocus(event, index) {
+            const buttons = [...searchResults.querySelectorAll('button')];
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                const next = buttons[Math.min(index + 1, buttons.length - 1)];
+                if (next) next.focus();
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                if (index === 0) searchInput.focus();
+                else buttons[index - 1].focus();
+            } else if (event.key === 'Escape') {
+                event.preventDefault();
+                closeSearch();
+                searchInput.focus();
+            }
+        }
+
+        searchInput.addEventListener('focus', () => closeSubmenus());
+        searchInput.addEventListener('input', () => renderSearch(searchInput.value));
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const first = searchResults.querySelector('button');
+            if (first) first.click();
+        });
+        searchInput.addEventListener('keydown', (event) => {
+            const first = searchResults.querySelector('button');
+            if (event.key === 'ArrowDown' && first) {
+                event.preventDefault();
+                first.focus();
+            } else if (event.key === 'Escape') {
+                event.preventDefault();
+                event.stopPropagation();
+                closeSearch();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.site-search')) closeSearch();
+        });
+
+        const sectionWatcher = new IntersectionObserver((entries) => {
+            const visible = entries
+                .filter(entry => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+            if (!visible.length) return;
+            const key = visible[0].target.dataset.navKey;
+            document.querySelectorAll('#navMenu > ul > li[data-nav]').forEach(item => {
+                const on = item.dataset.nav === key;
+                item.classList.toggle('is-current', on);
+                const link = item.querySelector(':scope > a, :scope > .nav-row > a');
+                if (!link) return;
+                if (on) link.setAttribute('aria-current', 'location');
+                else link.removeAttribute('aria-current');
+            });
+        }, { rootMargin: '-30% 0px -55% 0px', threshold: [0.1, 0.25, 0.5] });
+        searchSections.forEach(([id, key]) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.dataset.navKey = key;
+            sectionWatcher.observe(el);
+        });
+
+        document.addEventListener('keydown', (keyEvent) => {
+            if (keyEvent.key !== 'Escape') return;
+            if (keyEvent.target.closest && keyEvent.target.closest('.site-search')) return;
+            if (closeSearch()) return;
+            if (closeSubmenus()) return;
+            if (document.getElementById('navMenu').classList.contains('active')) closeMobileMenu();
         });
 
         syncMobileNav();
